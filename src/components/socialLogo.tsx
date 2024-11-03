@@ -9,7 +9,6 @@ type Props = {}
 type State = {}
 
 export default class socialLogo extends Component<Props, State> {
-    state = {}
 
     render() {
         return (

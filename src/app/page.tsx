@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { GithubIcon, LinkedinIcon, DribbbleIcon, Facebook, Twitter, Instagram, Code, Paintbrush, Lightbulb, CalendarDays, Rocket, Puzzle } from "lucide-react"
+import { LinkedinIcon, Facebook, Twitter, Instagram, Code, Paintbrush, CalendarDays, Rocket, Puzzle } from "lucide-react"
 
 import profile from "@/assets/profile-pic.jpg"
 import Navbar from '@/components/common/navbar'
