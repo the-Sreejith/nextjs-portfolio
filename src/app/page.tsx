@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { LinkedinIcon, Facebook, Twitter, Instagram, Code, Paintbrush, CalendarDays, Rocket, Puzzle } from "lucide-react"
+import { GithubIcon, LinkedinIcon, DribbbleIcon, Facebook, Twitter, Instagram, Code, Paintbrush, Lightbulb, CalendarDays, Rocket, Puzzle, Menu, FileCode2, Database, Server, Figma, Zap, Cloud } from "lucide-react"
 
 import profile from "@/assets/profile-pic.jpg"
 import Navbar from '@/components/common/navbar'
@@ -15,14 +15,29 @@ import SocialLogo from '@/components/socialLogo'
 
 
 const projectsData = [
-  { id: 1, title: "E-commerce Platform", category: "Web Development", image: "/placeholder.svg" },
-  { id: 2, title: "Mobile Banking App", category: "Mobile App", image: "/placeholder.svg" },
+  { id: 1, title: "Pregsee - Flutter app", category: "Mobile App", image: "/placeholder.svg" },
+  { id: 2, title: "Flexyhire", category: "Web development", image: "/placeholder.svg" },
   { id: 3, title: "AI-Powered Chatbot", category: "AI", image: "/placeholder.svg" },
   { id: 4, title: "Responsive Portfolio", category: "Web Design", image: "/placeholder.svg" },
   { id: 5, title: "Data Visualization Dashboard", category: "Data Science", image: "/placeholder.svg" },
   { id: 6, title: "Social Media Analytics Tool", category: "Web Development", image: "/placeholder.svg" },
 ]
 
+
+const skills = [
+  { name: "React.js", icon: <FileCode2 className="h-8 w-8" /> },
+  { name: "Next.js", icon: <Zap className="h-8 w-8" /> },
+  { name: "Node.js", icon: <Server className="h-8 w-8" /> },
+  { name: "Flutter", icon: <Rocket className="h-8 w-8" /> },
+  { name: "Figma", icon: <Figma className="h-8 w-8" /> },
+  { name: "Firebase", icon: <Zap className="h-8 w-8" /> },
+  { name: "AWS", icon: <Cloud className="h-8 w-8" /> },
+  { name: "HTML/CSS", icon: <Code className="h-8 w-8" /> },
+  { name: "JavaScript", icon: <FileCode2 className="h-8 w-8" /> },
+  { name: "TypeScript", icon: <FileCode2 className="h-8 w-8" /> },
+  { name: "Git", icon: <GithubIcon className="h-8 w-8" /> },
+  { name: "SQL", icon: <Database className="h-8 w-8" /> },
+]
 
 
 export default function Home() {
@@ -76,7 +91,7 @@ export default function Home() {
                 <span className="text-blue-600">Sreejith Sreejayan</span>, Flutter/ React Developer and{" "}
                 <span className="inline-block">UX / UI Designer</span> Based in Banglore.
               </h1>
-              <Button variant="outline" className="h-14 px-8 font-bold text-lg">  
+              <Button variant="outline" className="h-14 px-8 font-bold text-lg">
                 Contact Me
               </Button>
             </div>
@@ -85,54 +100,25 @@ export default function Home() {
         </div>
 
 
-        {/* Skills/Services Section */}
-        <section className="w-full bg-zinc-900 py-12 md:py-24">
+        {/* Skills Section */}
+        <section className="w-full bg-zinc-900 py-12 md:py-24 rounded-xl px-24">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-4 mb-16">
-              <h3 className="text-zinc-400 text-lg uppercase tracking-wider">OUR SERVICES</h3>
+              <h3 className="text-zinc-400 text-lg uppercase tracking-wider">MY SKILLS</h3>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-                Turn Information{" "}
-                <span className="text-[#00BFFF]">Into Actionable</span>{" "}
-                Insights
+                Expertise in{" "}
+                <span className="text-[#00BFFF]">Modern Technologies</span>
               </h2>
             </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-zinc-800/50 p-8 rounded-lg space-y-4">
-                <div className="w-12 h-12">
-                  <Paintbrush className="w-full h-full text-white" />
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+              {skills.map((skill, index) => (
+                <div key={index} className="flex flex-col items-center justify-center p-4 bg-zinc-800/50 rounded-lg hover:bg-zinc-700/50 transition-colors">
+                  <div className="text-[#00BFFF] mb-2">
+                    {skill.icon}
+                  </div>
+                  <span className="text-white text-sm font-medium">{skill.name}</span>
                 </div>
-                <h3 className="text-xl font-bold text-white">UI / UX DESIGN</h3>
-                <p className="text-zinc-400">
-                  Transform user experiences with intuitive and engaging interface designs that prioritize usability and aesthetic appeal.
-                </p>
-              </div>
-              <div className="bg-zinc-800/50 p-8 rounded-lg space-y-4">
-                <div className="w-12 h-12">
-                  <Code className="w-full h-full text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white">WEB DEVELOPMENT</h3>
-                <p className="text-zinc-400">
-                  Build robust and scalable web applications using cutting-edge technologies and best practices in modern development.
-                </p>
-              </div>
-              <div className="bg-zinc-800/50 p-8 rounded-lg space-y-4">
-                <div className="w-12 h-12">
-                  <Rocket className="w-full h-full text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white">SEO / MARKETING</h3>
-                <p className="text-zinc-400">
-                  Boost your online presence with data-driven SEO strategies and comprehensive digital marketing solutions.
-                </p>
-              </div>
-              <div className="bg-zinc-800/50 p-8 rounded-lg space-y-4">
-                <div className="w-12 h-12">
-                  <Puzzle className="w-full h-full text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white">TECHNOLOGY SOLUTION</h3>
-                <p className="text-zinc-400">
-                  Implement tailored technology solutions that address your specific business challenges and drive growth.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -295,14 +281,14 @@ export default function Home() {
                     Let is make your brand brilliant!
                   </h2>
                   <p className="text-zinc-400 text-lg">
-                    If you would like to work with us or just want to get in touch, we&apos;d love to hear from you!
+                    If you would like to work with me or just want to get in touch, I&apos;d love to hear from you!
                   </p>
                 </div>
                 <Link
-                  href="tel:+18408412569"
+                  href="mailto:ssjksreejith@gmail.com" 
                   className="text-[#00BFFF] text-2xl md:text-3xl font-bold hover:underline inline-block"
                 >
-                  +1 840 841 25 69
+                  SSJKSREEJITH@GMAIL.COM
                 </Link>
                 <div className="flex gap-6">
                   <Link
