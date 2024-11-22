@@ -2,15 +2,11 @@
 
 import { DribbbleIcon, GithubIcon, LinkedinIcon, XIcon } from 'lucide-react'
 import Link from 'next/link'
-import React, { Component } from 'react'
 
-type Props = {}
 
-type State = {}
+export default function SocialLogo(){
 
-export default class socialLogo extends Component<Props, State> {
 
-    render() {
         return (
             <div className="flex gap-2 items-center">
                 <Link
@@ -45,5 +41,5 @@ export default class socialLogo extends Component<Props, State> {
                 </Link>
             </div>
         )
-    }
+    
 }
