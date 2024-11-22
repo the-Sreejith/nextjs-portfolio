@@ -27,8 +27,9 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
     const { data, content } = matter(fileContents)
 
     return {
-      id: slug,
+      id: data.id,
       slug,
+      img: data.img,
       title: data.title,
       content: content,
       excerpt: data.excerpt || content.substring(0, 200),
