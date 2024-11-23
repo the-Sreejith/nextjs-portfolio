@@ -17,10 +17,12 @@ import ProjectsSection, { Project } from '@/components/HomePage/ProjectsSection'
 import { BlogPost } from '@/types/BlogPost'
 import BlogSection from '@/components/HomePage/BlogSection'
 
+const siteurl = 'https://www.thesreejith.in/';
+
 // Function to fetch projects from API
 async function fetchProjects(): Promise<Project[]> {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects`, {
+    const response = await fetch(`https://www.thesreejith.in/api/projects`, {
       next: {
         revalidate: 3600 // Revalidate every hour
       }
@@ -38,7 +40,7 @@ async function fetchProjects(): Promise<Project[]> {
 }
 
 async function fetchBlogs(): Promise<BlogPost[]> {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`, {
+  const response = await fetch(`https://www.thesreejith.in/api/blogs`, {
       cache: 'no-store' // or 'force-cache' based on your needs
   })
   const blogs = await response.json()
