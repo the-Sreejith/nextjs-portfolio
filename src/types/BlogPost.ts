@@ -2,6 +2,7 @@
 export interface BlogPost {
     id: string
     title: string
+    category: string
     img:string
     slug: string
     content: string

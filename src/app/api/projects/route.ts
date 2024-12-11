@@ -17,7 +17,7 @@ const projectsData: Project[] = [
     title: "Pregsee - Flutter app",
     category: "Mobile App",
     description: "A comprehensive pregnancy tracking and health monitoring mobile application built with Flutter.",
-    image: "/placeholder.svg",
+    image: "/project-thumbnails/pregsee.png",
     technologies: ["Figma","Flutter", "Dart", "Firebase"],
     githubLink: "https://github.com/sreejithns-2002/pregsee",
     liveLink: "https://pregsee.app"
@@ -27,7 +27,7 @@ const projectsData: Project[] = [
     title: "Hireflex - Landing Page",
     category: "Web Development",
     description: "Landing Page created using Tailwindcss and react for running initial campaingns",
-    image: "/placeholder.svg",
+    image: "/project-thumbnails/hireflex.png",
     technologies: ["Next.js", "React", "JavaScript", "Tailwind CSS"],
     githubLink: "https://github.com/username/flexyhire",
     liveLink: "https://hireflex.vercel.app/"
@@ -37,7 +37,7 @@ const projectsData: Project[] = [
     title: "XDLINX Website",
     category: "Wordpress Development",
     description: "Wordpress website created for leading satalite manufacturing company",
-    image: "/placeholder.svg",
+    image: "/project-thumbnails/xdlinx.png",
     technologies: ["Wordpress", "CMS", "Javascript", "CSS"],
     liveLink: "https://xdlinx.space"
   },
@@ -46,7 +46,7 @@ const projectsData: Project[] = [
     title: "Click Go",
     category: "UI/UX Design",
     description: "Food and ecommerce supplier app prototype created part of a client requirement",
-    image: "/placeholder.svg",
+    image: "/project-thumbnails/clickgo.png",
     technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
     liveLink: "https://www.figma.com/proto/NPwLIKgFCogw2agXp9tqBm/Click-Go?node-id=305-1016&node-type=canvas&t=LY3FJubLH9RiuC63-1&scaling=min-zoom&content-scaling=fixed&page-id=7%3A3&starting-point-node-id=302%3A919"
   },

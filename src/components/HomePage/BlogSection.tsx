@@ -5,46 +5,46 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-
-// Blog interface
-export interface Blog {
-  id: number;
-  title: string;
-  category: string;
-  excerpt: string;
-  content: string;
-  image: string;
-  author: string;
-  publishedAt: Date;
-  tags?: string[];
-}
+import { BlogPost } from '@/types/BlogPost'
 
 // Categories for filtering
 const BLOG_CATEGORIES = [
-  'All', 
-  'Technology', 
-  'Design', 
-  'Product', 
+  'All',
+  'Technology',
+  'Design',
+  'Product',
   'Tutorials'
 ] as const;
 
 type BlogCategory = typeof BLOG_CATEGORIES[number];
 
-interface BlogSectionProps {
-  initialBlogs: Blog[];
+
+async function fetchBlogs(): Promise<BlogPost[]> {
+  const response = await fetch(`https://www.thesreejith.in/api/blogs`, {
+    cache: 'no-store' // or 'force-cache' based on your needs
+  })
+  const blogs = await response.json()
+
+  return blogs.map((blog: BlogPost) => ({
+    ...blog,
+    publishedAt: new Date(blog.publishedAt)
+  }))
 }
 
-export default function BlogSection({ initialBlogs }: BlogSectionProps) {
-  const [blogs, setBlogs] = useState<Blog[]>(initialBlogs)
+
+export default async function BlogSection() {
+
+  const blogPosts = await fetchBlogs()
+  const [blogs, setBlogs] = useState<BlogPost[]>(blogPosts)
   const [filter, setFilter] = useState<BlogCategory>('All')
 
   const handleFilter = (category: BlogCategory) => {
     setFilter(category)
     if (category === 'All') {
-      setBlogs(initialBlogs)
+      setBlogs(blogPosts)
     } else {
       setBlogs(
-        initialBlogs.filter(blog => blog.category === category)
+        blogPosts.filter(blog => blog.category === category)
       )
     }
   }
@@ -53,7 +53,7 @@ export default function BlogSection({ initialBlogs }: BlogSectionProps) {
     <section className="w-full bg-zinc-950 py-12 md:py-24">
       <div className="container px-4 md:px-6">
         <h2 className="text-3xl font-bold text-white mb-8">Blog Posts</h2>
-        
+
         {/* Filter Buttons */}
         <div className="flex justify-center space-x-4 mb-8 flex-wrap">
           {BLOG_CATEGORIES.map((category) => (
@@ -71,14 +71,14 @@ export default function BlogSection({ initialBlogs }: BlogSectionProps) {
         {/* Blogs Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogs.map((blog) => (
-            <Card 
-              key={blog.id} 
+            <Card
+              key={blog.id}
               className="bg-zinc-900 border-zinc-800 transition-transform duration-300 hover:scale-105"
             >
               {/* Blog Image */}
               <CardHeader>
                 <Image
-                  src={blog.image}
+                  src={blog.img}
                   alt={blog.title}
                   width={400}
                   height={200}
@@ -95,13 +95,13 @@ export default function BlogSection({ initialBlogs }: BlogSectionProps) {
                 <p className="text-zinc-300 text-sm line-clamp-3">
                   {blog.excerpt}
                 </p>
-                
+
                 {/* Tags */}
                 {blog.tags && (
                   <div className="flex flex-wrap gap-2 mt-2">
                     {blog.tags.map((tag) => (
-                      <span 
-                        key={tag} 
+                      <span
+                        key={tag}
                         className="text-xs bg-zinc-800 text-zinc-300 px-2 py-1 rounded"
                       >
                         {tag}
