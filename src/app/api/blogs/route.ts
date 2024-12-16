@@ -3,11 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 
 export async function GET(request: NextRequest) {
-  const blogs = await prisma.blogPost.findMany({
-    where: {
-        slug: undefined
-    }
-  })
+  const blogs = await prisma.blogPost.findMany()
 
   try {
     // Add query parameter support for filtering

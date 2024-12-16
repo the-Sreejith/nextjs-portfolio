@@ -113,7 +113,7 @@ export default function BlogSection() {
               <CardContent className="space-y-2">
                 <CardTitle className="text-white">{blog.title}</CardTitle>
                 <CardDescription className="text-zinc-400">
-                  {blog.category} | {blog.publishedAt.toLocaleDateString()}
+                  {/* {blog.category} | {blog.publishedAt.toDateString()} */}
                 </CardDescription>
                 <p className="text-zinc-300 text-sm line-clamp-3">
                   {blog.excerpt}

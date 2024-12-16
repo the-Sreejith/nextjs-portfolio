@@ -5,10 +5,10 @@ const prisma = new PrismaClient();
 
 const blogPosts = [
   {
-    slug: 'Hello world',
+    slug: 'Hello-world',
     title: 'This is my first blog post',
     category: 'Web Development',
-    img: '',
+    img: '/project-thumbnails/hireflex.png',
     content: '[{"type":"text","content":"Welcome to my blog!"},{"type":"image","src":"/images/landscape.jpg","alt":"A beautiful landscape"},{"type":"text","content":"Here is some more content after the image."},{"type":"text","content":"TypeScript extends JavaScript by adding type definitions..."}]',
     excerpt: 'Learn the basics of TypeScript and its advantages',
     publishedAt: new Date('2024-01-15'),

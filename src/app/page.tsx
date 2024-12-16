@@ -13,7 +13,7 @@ import Navbar from '@/components/common/navbar'
 import SocialLogo from '@/components/socialLogo'
 
 import ProjectsSection from '@/components/HomePage/ProjectsSection'
-import BlogSection from '@/components/HomePage/BlogSection'
+// import BlogSection from '@/components/HomePage/BlogSection'
 import ContactSection from "@/components/HomePage/ContactSection"
 
 
@@ -111,26 +111,12 @@ export default async function Home() {
         </div>
         
         
-        {/* Projects Section */}
-        <div className="bg-zinc-950">
+        {/* Blog Section */}
+        {/* <div className="bg-zinc-950">
           <div className="container mx-auto">
             <BlogSection />
           </div>
-        </div>
-
-        {/* TODO: Complete the blog section */}
-        {/* Blog Section */}
-        {/* <section className="w-full bg-zinc-950 py-12 md:py-24">
-          <div className="container px-4 md:px-6">
-            <div className="flex justify-between items-center mb-12">
-              <h2 className="text-3xl font-bold text-white">Latest Blog Posts</h2>
-              <Button variant="outline">View All Posts</Button>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <BlogSection blogPosts={blogPosts} />
-            </div>
-          </div>
-        </section> */}
+        </div> */}
 
         
         <ContactSection />
