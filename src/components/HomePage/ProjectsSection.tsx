@@ -107,9 +107,9 @@ export default function ProjectsSection() {
                 <Image
                   src={project.image}
                   alt={project.title}
-                  width={400}
-                  height={200}
-                  className="rounded-t-lg object-cover h-48 w-full"
+                  width={800}
+                  height={800}
+                  className="rounded-t-lg object-cover h-72 w-full"
                 />
               </CardHeader>
 
@@ -128,7 +128,7 @@ export default function ProjectsSection() {
                 {/* Technologies Used */}
                 {project.technologies && (
                   <div className="flex flex-wrap gap-2 mt-2">
-                    {project.technologies.map((tech) => (
+                    {project.technologies.split(',').map((tech) => (
                       <span
                         key={tech}
                         className="text-xs bg-zinc-800 text-zinc-300 px-2 py-1 rounded"

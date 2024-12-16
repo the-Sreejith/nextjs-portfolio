@@ -1,83 +1,105 @@
 // app/projects/[id]/page.tsx
-import { Project } from '@/types/Project';
+import { Project, ContentBlock } from '@/types/Project';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 
-// async function fetchProjects(): Promise<Project[]> {
-  
-// }
+async function fetchProjects(id: string): Promise<Project> {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/projects/${id}`)
+    if (!response.ok) {
+      throw new Error('Failed to fetch projects')
+    }
+    return response.json()
+  } catch (error) {
+    console.error('Error fetching projects:', error)
+    throw error
+  }
+}
 
 
-export default function ProjectDetailPage({ params }: { params: { id: string } }) {
-  const id = params.id
+export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }>}) {
+  const id = (await params).id
+  const project = await fetchProjects(id)
 
-  return <div>Project Detail Page</div>
+  return (
+    <div className="container mx-auto px-4 py-8 bg-zinc-950">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-4 text-white">{project.title}</h1>
+        
+        <p className="mb-6 text-white">{project.description}</p>
 
-//   return (
-//     <div className="container mx-auto px-4 py-8">
-//       <div className="max-w-4xl mx-auto">
-//         <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold mb-2 text-white">Technologies</h2>
+          <div className="flex flex-wrap gap-2">
+            {project.technologies!.split(',').map(tech => (
+              <span 
+                key={tech} 
+                className="text-xs bg-zinc-800 text-zinc-300 px-2 py-1 rounded"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
         
-//         <p className="text-gray-600 mb-6">{project.description}</p>
+        <Image src={project.image} alt={project.title} width={500} height={500} />
+
+        <div className="mb-6"> 
+          {project.content && (
+            <p className="text-white">{JSON.parse(project.content!).map((block: ContentBlock, index: number) => {
+              if (block.type === "text") {
+                return (
+                  <p key={index} style={{ fontSize: "1.2rem", margin: "1rem 0", color: "white" }}>
+                    {block.content}
+                  </p>
+                );
+              }
+      
+              if (block.type === "image") {
+                return (
+                  <div key={index} style={{ margin: "1.5rem 0" }}>
+                    <img
+                      src={block.src}
+                      alt={block.alt}
+                      style={{ maxWidth: "100%", borderRadius: "8px", border: "2px solid white" }}
+                    />
+                  </div>
+                );
+              }
+      
+              return null;
+            })}</p>
+          )}
+        </div>
         
-//         <div className="mb-6">
-//           <h2 className="text-xl font-semibold mb-2">Technologies</h2>
-//           <div className="flex flex-wrap gap-2">
-//             {project.technologies.map(tech => (
-//               <span 
-//                 key={tech} 
-//                 className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
-//               >
-//                 {tech}
-//               </span>
-//             ))}
-//           </div>
-//         </div>
+
         
-//         {project.images && project.images.length > 0 && (
-//           <div className="mb-6">
-//             <h2 className="text-xl font-semibold mb-2">Project Screenshots</h2>
-//             <div className="grid md:grid-cols-2 gap-4">
-//               {project.images.map((img, index) => (
-//                 <Image
-//                   key={index}
-//                   src={img}
-//                   alt={`${project.title} screenshot ${index + 1}`}
-//                   width={600}
-//                   height={400}
-//                   className="rounded-lg shadow-md"
-//                 />
-//               ))}
-//             </div>
-//           </div>
-//         )}
-        
-//         <div className="flex space-x-4">
-//           {project.githubLink && (
-//             <Link 
-//               href={project.githubLink} 
-//               target="_blank" 
-//               className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700"
-//             >
-//               GitHub
-//             </Link>
-//           )}
+        <div className="flex space-x-4">
+          {project.githubLink && (
+            <Link 
+              href={project.githubLink} 
+              target="_blank" 
+              className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700"
+            >
+              GitHub
+            </Link>
+          )}
           
-//           {project.liveLink && (
-//             <Link 
-//               href={project.liveLink} 
-//               target="_blank" 
-//               className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500"
-//             >
-//               Live Site
-//             </Link>
-//           )}
-//         </div>
-//       </div>
-//     </div>
-//   );
+          {project.liveLink && (
+            <Link 
+              href={project.liveLink} 
+              target="_blank" 
+              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500"
+            >
+              Live Site
+            </Link>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 // // Generate metadata for SEO
