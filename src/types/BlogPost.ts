@@ -1,10 +1,9 @@
 // src/types/BlogPost.ts
 export interface BlogPost {
-  id: string
+  slug: string
   title: string
   category: string
   img: string
-  slug: string
   content: string
   excerpt: string
   publishedAt: Date
@@ -12,3 +11,14 @@ export interface BlogPost {
   tags?: string
   imageUrl?: string
 }
+
+export type ContentBlock =
+  | {
+    type: "text";
+    content: string;
+  }
+  | {
+    type: "image";
+    src: string;
+    alt: string;
+  };

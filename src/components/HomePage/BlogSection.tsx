@@ -1,7 +1,8 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from "next/link"
+import { useRouter } from 'next/navigation'
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -20,33 +21,55 @@ type BlogCategory = typeof BLOG_CATEGORIES[number];
 
 
 async function fetchBlogs(): Promise<BlogPost[]> {
-  const response = await fetch(`https://www.thesreejith.in/api/blogs`, {
-    cache: 'no-store' // or 'force-cache' based on your needs
-  })
-  const blogs = await response.json()
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`, {
+      next: {
+        revalidate: 3600 // Revalidate every hour
+      }
+    })
 
-  return blogs.map((blog: BlogPost) => ({
-    ...blog,
-    publishedAt: new Date(blog.publishedAt)
-  }))
+    if (!response.ok) {
+      throw new Error('Failed to fetch blogs')
+    }
+
+    return response.json()
+  } catch (error) {
+    console.error('Error fetching blogs:', error)
+    return []
+  }
 }
 
 
-export default async function BlogSection() {
-
-  const blogPosts = await fetchBlogs()
-  const [blogs, setBlogs] = useState<BlogPost[]>(blogPosts)
+export default function BlogSection() {
+  const router = useRouter()
+  const [allBlogs, setAllBlogs] = useState<BlogPost[]>([])
+  const [blogs, setBlogs] = useState<BlogPost[]>([])
   const [filter, setFilter] = useState<BlogCategory>('All')
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    fetchBlogs().then((data) => {
+      setAllBlogs(data)
+      setBlogs(data)
+    }).finally(() => {
+      setIsLoading(false)
+    })
+  }, [])
+
 
   const handleFilter = (category: BlogCategory) => {
     setFilter(category)
     if (category === 'All') {
-      setBlogs(blogPosts)
+      setBlogs(allBlogs)
     } else {
       setBlogs(
-        blogPosts.filter(blog => blog.category === category)
+        allBlogs.filter(blog => blog.category === category)
       )
     }
+  }
+
+  if (isLoading) {
+    return <div>Loading...</div>
   }
 
   return (
@@ -72,7 +95,7 @@ export default async function BlogSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogs.map((blog) => (
             <Card
-              key={blog.id}
+              key={blog.slug}
               className="bg-zinc-900 border-zinc-800 transition-transform duration-300 hover:scale-105"
             >
               {/* Blog Image */}
@@ -99,7 +122,7 @@ export default async function BlogSection() {
                 {/* Tags */}
                 {blog.tags && (
                   <div className="flex flex-wrap gap-2 mt-2">
-                    {blog.tags.map((tag) => (
+                    {blog.tags.split(',').map((tag) => (
                       <span
                         key={tag}
                         className="text-xs bg-zinc-800 text-zinc-300 px-2 py-1 rounded"
@@ -116,7 +139,7 @@ export default async function BlogSection() {
                 <div className="text-zinc-400 text-sm">
                   By {blog.author}
                 </div>
-                <Link href={`/blog/${blog.id}`}>
+                <Link href={`/blog/${blog.slug}`}>
                   <Button variant="outline">Read More</Button>
                 </Link>
               </CardFooter>

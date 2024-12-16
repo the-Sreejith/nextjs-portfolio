@@ -109,6 +109,14 @@ export default async function Home() {
             <ProjectsSection />
           </div>
         </div>
+        
+        
+        {/* Projects Section */}
+        <div className="bg-zinc-950">
+          <div className="container mx-auto">
+            <BlogSection />
+          </div>
+        </div>
 
         {/* TODO: Complete the blog section */}
         {/* Blog Section */}

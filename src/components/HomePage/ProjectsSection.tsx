@@ -51,7 +51,6 @@ export default function ProjectsSection() {
 
   useEffect(() => {
     fetchProjects().then((data) => {
-      console.log(`projects: ${data}`)
       setAllProjects(data)
       setProjects(data) 
     }).finally(() => {

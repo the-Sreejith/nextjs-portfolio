@@ -9,11 +9,10 @@ generator client {
 }
 
 model BlogPost {
-  id          Int      @id @default(autoincrement())
+  slug        String   @id @unique
   title       String
   category    String
   img         String
-  slug        String
   content     String
   excerpt     String
   publishedAt DateTime

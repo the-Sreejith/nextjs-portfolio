@@ -13,11 +13,11 @@ export interface Project {
 
 export type ContentBlock =
   | {
-      type: "text";
-      content: string;
-    }
+    type: "text";
+    content: string;
+  }
   | {
-      type: "image";
-      src: string;
-      alt: string;
-    };
+    type: "image";
+    src: string;
+    alt: string;
+  };
