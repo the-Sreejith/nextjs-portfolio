@@ -106,8 +106,8 @@ export default function ProjectsSection() {
                 <Image
                   src={project.image}
                   alt={project.title}
-                  width={800}
-                  height={800}
+                  width={400}
+                  height={200}
                   className="rounded-t-lg object-cover h-72 w-full"
                 />
               </CardHeader>
