@@ -5,7 +5,7 @@
 import { useEffect, useState } from 'react'
 import Link from "next/link"
 import { useRouter } from 'next/navigation'
-import Image from "next/image"
+// import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Project } from '@/types/Project'
@@ -103,7 +103,7 @@ export default function ProjectsSection() {
             >
               {/* Project Image */}
               <CardHeader>
-                <Image
+                <img
                   src={project.image}
                   alt={project.title}
                   width={400}
