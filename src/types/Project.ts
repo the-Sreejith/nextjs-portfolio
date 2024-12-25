@@ -17,6 +17,10 @@ export type ContentBlock =
     content: string;
   }
   | {
+    type: "title";
+    content: string;
+  }
+  | {
     type: "image";
     src: string;
     alt: string;

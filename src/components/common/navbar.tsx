@@ -18,25 +18,26 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           {/* Left: Name */}
           <Link href="/" className="text-white text-2xl font-bold">
-            the-sreejith
+            Sreejith Sreejayan
           </Link>
 
           {/* Center: Social Icons (hidden on mobile) */}
           <div className="hidden md:flex items-center gap-4">
-            <Link href="https://behance.net/thesreejith" className="text-zinc-400 hover:text-white">
+            <Link href="https://behance.net/thesreejith" target='_blank' className="text-zinc-400 hover:text-white">
               Be
             </Link>
-            <Link href="https://github.com/the-sreejith" className="text-zinc-400 hover:text-white">
+            <Link href="https://github.com/the-sreejith" target='_blank' className="text-zinc-400 hover:text-white">
               <GithubIcon className="h-5 w-5" />
             </Link>
-            <Link href="https://linkedin.com/in/thesreejith" className="text-zinc-400 hover:text-white">
+            <Link href="https://linkedin.com/in/thesreejith" target='_blank' className="text-zinc-400 hover:text-white">
               <LinkedinIcon className="h-5 w-5" />
             </Link>
-            <Link href="https://dribbble.com/sreejith_sreejayan" className="text-zinc-400 hover:text-white">
+            <Link href="https://dribbble.com/sreejith_sreejayan" target='_blank' className="text-zinc-400 hover:text-white">
               <DribbbleIcon className="h-5 w-5" />
             </Link>
             <Link
               href="https://x.com/thesreejith_"
+              target='_blank'
               className="text-zinc-400 hover:text-white"
             >
               <XIcon className="h-5 w-5" />
@@ -73,7 +74,7 @@ export default function Navbar() {
             <Link href="https://dribbble.com" className="block text-zinc-400 hover:text-white">
               Dribbble
             </Link>
-            <Button variant="outline" className="w-full">
+            <Button variant="outline" className="w-full" scrollTo='contact'>
               Contact Me
             </Button>
           </div>

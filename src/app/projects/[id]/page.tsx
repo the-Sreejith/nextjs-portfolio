@@ -1,8 +1,6 @@
-// app/projects/[id]/page.tsx
 import { Project, ContentBlock } from '@/types/Project';
 import Image from 'next/image';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
 
 
 async function fetchProjects(id: string): Promise<Project> {
@@ -24,11 +22,11 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   const project = await fetchProjects(id)
 
   return (
-    <div className="container mx-auto px-4 py-8 bg-zinc-950">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-4 text-white">{project.title}</h1>
+    <div className="container mx-auto px-4 lg:px-72 py-20 mb-24 bg-zinc-950">
+      <div className="mx-auto">
+        <h1 className="text-3xl lg:text-5xl font-bold mb-4 text-white">{project.title}</h1>
         
-        <p className="mb-6 text-white">{project.description}</p>
+        <p className="mb-6 lg:w-2/3 text-white">{project.description}</p>
 
         <div className="mb-6">
           <h2 className="text-xl font-semibold mb-2 text-white">Technologies</h2>
@@ -44,22 +42,30 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           </div>
         </div>
         
-        <Image src={project.image} alt={project.title} width={500} height={500} />
+        <Image className="w-full" src={project.image} alt={project.title} width={500} height={500} />
 
-        <div className="mb-6"> 
+        <div className="mb-20 mt-20 "> 
           {project.content && (
-            <p className="text-white">{JSON.parse(project.content!).map((block: ContentBlock, index: number) => {
+            <div className="text-white">{JSON.parse(project.content!).map((block: ContentBlock, index: number) => {
               if (block.type === "text") {
                 return (
-                  <p key={index} style={{ fontSize: "1.2rem", margin: "1rem 0", color: "white" }}>
+                  <p key={index} className='text-white my-4'>
                     {block.content}
                   </p>
+                );
+              }
+              
+              if (block.type === "title") {
+                return (
+                  <h3 key={index} className='text-white text-3xl font-bold mt-8'>
+                    {block.content}
+                  </h3>
                 );
               }
       
               if (block.type === "image") {
                 return (
-                  <div key={index} style={{ margin: "1.5rem 0" }}>
+                  <div key={index} className="my-4">
                     <img
                       src={block.src}
                       alt={block.alt}
@@ -70,13 +76,13 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               }
       
               return null;
-            })}</p>
+            })}</div>
           )}
         </div>
         
 
         
-        <div className="flex space-x-4">
+        <div className="flex space-x-4  ">
           {project.githubLink && (
             <Link 
               href={project.githubLink} 
@@ -93,7 +99,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               target="_blank" 
               className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500"
             >
-              Live Site
+              Live Link
             </Link>
           )}
         </div>
@@ -103,8 +109,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 }
 
 // // Generate metadata for SEO
-// export async function generateMetadata({ params }: ProjectDetailPageProps) {
-//   const project = getProjectById(params.id);
+// export async function generateMetadata({ params }: { params: Promise<{ id: string }>}) {
+//   const id = (await params).id;
+//   const project = getProjectById(id);
   
 //   return {
 //     title: project ? `${project.title} | Your Portfolio` : 'Project Not Found',

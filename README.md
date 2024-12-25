@@ -4,7 +4,7 @@ A modern, responsive developer portfolio built with Next.js and Tailwind CSS.
 
 ## 🌐 Live Demo
 
-Visit the live site at [thesreejith.vercel.app](https://thesreejith.vercel.app)
+Visit the live site at [thesreejith.in](https://thesreejith.in)
 
 ## ✨ Features
 

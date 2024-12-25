@@ -5,7 +5,7 @@
 import { useEffect, useState } from 'react'
 import Link from "next/link"
 import { useRouter } from 'next/navigation'
-// import Image from "next/image"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Project } from '@/types/Project'
@@ -70,16 +70,16 @@ export default function ProjectsSection() {
   }
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <div className="text-white flex justify-center h-96 items-center mx-auto">Loading...</div>
   }
 
   return (
-    <div className="w-full bg-zinc-950 py-12 md:py-24">
+    <div className="w-full bg-zinc-950 py-12 ">
       <div className="container px-4 md:px-6">
-        <h2 className="text-3xl font-bold text-white mb-8">My Projects</h2>
+        
 
         {/* Filter Buttons */}
-        <div className="flex justify-center space-x-4 mb-8 flex-wrap">
+        <div className="flex justify-center lg:justify-normal space-x-4 mb-8 flex-wrap">
           {PROJECT_CATEGORIES.map((category) => (
             <Button
               key={category}
@@ -103,7 +103,7 @@ export default function ProjectsSection() {
             >
               {/* Project Image */}
               <CardHeader>
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
                   width={400}
@@ -141,7 +141,7 @@ export default function ProjectsSection() {
 
               {/* Project Actions */}
               <CardFooter className="flex justify-between">
-                <Link href={`/project/${project.id}`}>
+                <Link href={`/projects/${project.id}`}>
                   <Button variant="outline">View Details</Button>
                 </Link>
 

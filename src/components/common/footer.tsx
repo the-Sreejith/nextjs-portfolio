@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import Link  from "next/link";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -9,16 +9,7 @@ import SocialLogo from "@/components/socialLogo";
 
 
 
-// async function sendMessage(name: string, email: string, message: string) {
-    
-//     const response = await fetch(`${process.env.SITE_URL}/api/contact`, {
-//         method: 'POST',
-//         body: JSON.stringify({ name, email, message }),
-//     })
-//     return response.json()
-// }
-
-export default function ContactSection() {
+export default function Footer() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
@@ -35,11 +26,11 @@ export default function ContactSection() {
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
-        
+
         // Reset messages
         setError('')
         setSuccess('')
-        
+
         // Validate inputs
         if (!name || name.trim() === '') {
             setError('Please enter your name')
@@ -80,7 +71,7 @@ export default function ContactSection() {
             // Success
             setSuccess('Message sent successfully!')
             resetForm()
-            
+
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Failed to send message')
         } finally {
@@ -88,8 +79,8 @@ export default function ContactSection() {
         }
     }
 
-    return <section className="w-full bg-zinc-950 py-12 md:py-24 lg:py-32">
-        <div className="container px-4 md:px-6">
+    return <section id="footer" className="w-full border-t-2 border-zinc-900 bg-zinc-950 ">
+        <div className="container mx-auto py-12 px-8 md:py-20 lg:py-20">
             <div className="grid gap-10 lg:grid-cols-2">
                 <div className="space-y-8">
                     <div className="space-y-6">
@@ -97,13 +88,13 @@ export default function ContactSection() {
                         <h2 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                             Let's make your brand brilliant!
                         </h2>
-                        <p className="text-zinc-400 text-lg">
+                        <p className="text-zinc-400 text-sm md:text-lg" >
                             If you would like to work with me or just want to get in touch, I&apos;d love to hear from you!
                         </p>
                     </div>
                     <Link
                         href="mailto:ssjksreejith@gmail.com"
-                        className="text-[#00BFFF] text-xl md:text-2xl font-bold hover:underline inline-block"
+                        className="text-[#00BFFF] text-lg md:text-xl font-bold hover:underline inline-block"
                     >
                         SSJKSREEJITH@GMAIL.COM
                     </Link>
@@ -143,7 +134,7 @@ export default function ContactSection() {
                         >
                             {isLoading ? 'SENDING...' : 'SEND A MESSAGE'}
                         </Button>
-                        
+
                         {error && (
                             <p className="text-red-500 text-sm">{error}</p>
                         )}
@@ -154,5 +145,11 @@ export default function ContactSection() {
                 </div>
             </div>
         </div>
+        <div className="text-center  mb-0 p-2 bg-zinc-900 text-zinc-200 text-sm">
+            <p>
+                &copy; {new Date().getFullYear()} Sreejith. All rights reserved.
+            </p>
+        </div>
+
     </section>
 }
