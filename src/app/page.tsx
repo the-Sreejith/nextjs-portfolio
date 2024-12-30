@@ -1,18 +1,12 @@
-"use client"
-
-import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { GithubIcon, LinkedinIcon, DribbbleIcon, Facebook, Twitter, Instagram, Code, Paintbrush, Lightbulb, CalendarDays, Rocket, Puzzle, Menu, FileCode2, Database, Server, Figma, Zap, Cloud } from "lucide-react"
+import { GithubIcon, Code, Rocket, FileCode2, Database, Server, Figma, Zap, Cloud } from "lucide-react"
 
 import profile from "@/assets/profile-pic.jpg"
 import SocialLogo from '@/components/socialLogo'
 
 import ProjectsSection from '@/components/HomePage/ProjectsSection'
-// import BlogSection from '@/components/HomePage/BlogSection'
+import BlogSection from "@/components/HomePage/BlogSection"
 
 const skills = [
   { name: "React.js", icon: <FileCode2 className="h-8 w-8" /> },
@@ -64,10 +58,10 @@ export default function Home() {
             <div className="space-y-12  lg:text-left text-center py-20 px-4 lg:pl-0">
               <h1 className="text-white text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 Hello, I'm{" "}
-                <span className="text-[#00BFFF]">Sreejith Sreejayan</span>, Software Engineer and{" "}
+                <span className="text-[#1173E2]">Sreejith Sreejayan</span>, Software Engineer and{" "}
                 <span className="inline-block">UX / UI Designer</span> Based in Banglore.
               </h1>
-              <Button variant="outline" className="h-14 px-8 font-bold text-lg" scrollTo="contact">
+              <Button variant="outline" className="h-14 px-8 font-bold text-lg" scrollTo="footer">
                 Contact Me
               </Button >
             </div>
@@ -83,13 +77,13 @@ export default function Home() {
               <h3 className="text-zinc-400 text-lg uppercase tracking-wider">MY SKILLS</h3>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
                 Expertise in{" "}
-                <span className="text-[#00BFFF]">Modern Technologies</span>
+                <span className="text-[#1173E2]">Modern Technologies</span>
               </h2>
             </div>
             <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
               {skills.map((skill, index) => (
                 <div key={index} className="flex flex-col items-center justify-center p-4 bg-zinc-800/50 rounded-lg hover:bg-zinc-700/50 transition-colors">
-                  <div className="text-[#00BFFF] mb-2">
+                  <div className="text-[#1173E2] mb-2">
                     {skill.icon}
                   </div>
                   <span className="text-white text-sm font-medium">{skill.name}</span>
@@ -101,17 +95,17 @@ export default function Home() {
 
         {/* Projects Section */}
         <div className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-white mb-8">My Projects</h2>
-          <ProjectsSection />
+          <h2 className="text-3xl font-bold text-white mb-8">My Projects</h2>
+          <ProjectsSection featured={true} />
         </div>
 
 
         {/* Blog Section */}
-        {/* <div className="bg-zinc-950">
-          <div className="container mx-auto">
+        <div className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-white mb-8">Blog</h2>
             <BlogSection />
-          </div>
-        </div> */}
+          
+        </div>
       </div>
     </div>
   )

@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import Link from "next/link"
 import { useRouter } from 'next/navigation'
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { BlogPost } from '@/types/BlogPost'
 
@@ -73,12 +72,11 @@ export default function BlogSection() {
   }
 
   return (
-    <section className="w-full bg-zinc-950 py-12 md:py-24">
+    <section className="w-full  py-12">
       <div className="container px-4 md:px-6">
-        <h2 className="text-3xl font-bold text-white mb-8">Blog Posts</h2>
 
         {/* Filter Buttons */}
-        <div className="flex justify-center space-x-4 mb-8 flex-wrap">
+        {/* <div className="flex justify-center space-x-4 mb-8 flex-wrap">
           {BLOG_CATEGORIES.map((category) => (
             <Button
               key={category}
@@ -89,60 +87,60 @@ export default function BlogSection() {
               {category}
             </Button>
           ))}
-        </div>
+        </div> */}
 
         {/* Blogs Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogs.map((blog) => (
             <Card
               key={blog.slug}
-              className="bg-zinc-900 border-zinc-800 transition-transform duration-300 hover:scale-105"
+              className="bg-zinc-900 border-zinc-900  transition-transform duration-300 hover:scale-105"
             >
               {/* Blog Image */}
-              <CardHeader>
-                <Image
-                  src={blog.img}
-                  alt={blog.title}
-                  width={400}
-                  height={200}
-                  className="rounded-t-lg object-cover h-48 w-full"
-                />
-              </CardHeader>
+              <Link href={`/blog/${blog.slug}`}>
+                <CardHeader>
+                  <Image
+                    src={blog.img}
+                    alt={blog.title}
+                    width={400}
+                    height={200}
+                    className="rounded-t-lg object-cover h-48 w-full"
+                  />
+                </CardHeader>
 
-              {/* Blog Details */}
-              <CardContent className="space-y-2">
-                <CardTitle className="text-white">{blog.title}</CardTitle>
-                <CardDescription className="text-zinc-400">
-                  {/* {blog.category} | {blog.publishedAt.toDateString()} */}
-                </CardDescription>
-                <p className="text-zinc-300 text-sm line-clamp-3">
-                  {blog.excerpt}
-                </p>
+                {/* Blog Details */}
+                <CardContent className="space-y-2">
+                  <CardTitle className="text-white">{blog.title}</CardTitle>
+                  <CardDescription className="text-zinc-400">
+                    {/* {blog.category} | {blog.publishedAt.toDateString()} */}
+                  </CardDescription>
+                  <p className="text-zinc-300 text-sm line-clamp-3">
+                    {blog.excerpt}
+                  </p>
 
-                {/* Tags */}
-                {blog.tags && (
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {blog.tags.split(',').map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs bg-zinc-800 text-zinc-300 px-2 py-1 rounded"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  {/* Tags */}
+                  {blog.tags && (
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {blog.tags.split(',').map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs bg-zinc-800 text-zinc-300 px-2 py-1 rounded"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </CardContent>
+
+                {/* Blog Actions */}
+                <CardFooter className="flex justify-between items-center">
+                  <div className="text-zinc-400 text-sm">
+                    By {blog.author}
                   </div>
-                )}
-              </CardContent>
 
-              {/* Blog Actions */}
-              <CardFooter className="flex justify-between items-center">
-                <div className="text-zinc-400 text-sm">
-                  By {blog.author}
-                </div>
-                <Link href={`/blog/${blog.slug}`}>
-                  <Button variant="outline">Read More</Button>
-                </Link>
-              </CardFooter>
+                </CardFooter>
+              </Link>
             </Card>
           ))}
         </div>

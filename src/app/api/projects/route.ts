@@ -11,6 +11,7 @@ export async function GET(request: NextRequest) {
     // Add query parameter support for filtering
     const { searchParams } = new URL(request.url)
     const category = searchParams.get('category')
+    const featured = searchParams.get('featured')
 
     let filteredProjects = projects
 

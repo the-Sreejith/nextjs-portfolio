@@ -39,7 +39,7 @@ export default function Home() {
              
             </div>
             <div className="container mx-auto">
-                <ProjectsSection />
+                <ProjectsSection featured={false}/>
             </div>
         </div>
     )

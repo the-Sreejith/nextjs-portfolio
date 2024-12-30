@@ -94,7 +94,7 @@ export default function Footer() {
                     </div>
                     <Link
                         href="mailto:ssjksreejith@gmail.com"
-                        className="text-[#00BFFF] text-lg md:text-xl font-bold hover:underline inline-block"
+                        className="text-[#1173E2] text-lg md:text-xl font-bold hover:underline inline-block"
                     >
                         SSJKSREEJITH@GMAIL.COM
                     </Link>
@@ -128,7 +128,7 @@ export default function Footer() {
                         />
                         <Button
                             type="submit"
-                            className="w-full bg-zinc-900 hover:bg-zinc-800 text-white border-l-4 border-[#00BFFF]"
+                            className="w-full bg-zinc-900 hover:bg-zinc-800 text-white border-l-4 border-[#1173E2]"
                             size="lg"
                             disabled={isLoading}
                         >

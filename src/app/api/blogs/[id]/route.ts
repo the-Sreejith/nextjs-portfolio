@@ -6,7 +6,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
 
   const project = await prisma.blogPost.findUnique({
     where: {
-      id: parseInt(id)
+      slug: id
     }
   })
   return Response.json(project)

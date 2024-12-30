@@ -1,17 +1,17 @@
 // src/app/blog/page.tsx
-// import Link from 'next/link'
-// import Image from 'next/image'
-// import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-// import { Button } from "@/components/ui/button"
-// import { CalendarDays } from 'lucide-react'
-// import Navbar from '@/components/common/navbar'
+import Link from 'next/link'
+import Image from 'next/image'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { CalendarDays } from 'lucide-react'
+import Navbar from '@/components/common/navbar'
 
 export default function BlogSection() {
-  return(
-    <div>
-      Under development
-    </div>
-  )
+  // return(
+  //   <div>
+  //     Under development
+  //   </div>
+  // )
 
   // return (
   //   <div className="bg-zinc-950 min-h-screen">

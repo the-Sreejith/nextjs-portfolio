@@ -15,18 +15,18 @@ const PROJECT_CATEGORIES = [
   'All',
   'Web Development',
   'Mobile App',
-  'UI/UX Design',
   'Full Stack'
 ] as const;
 
 type ProjectCategory = typeof PROJECT_CATEGORIES[number];
 
 
-async function fetchProjects(): Promise<Project[]> {
+async function fetchProjects(featured:boolean): Promise<Project[]> {
   try {
-    const response = await fetch('/api/projects', {
+    // const apiEnpoint = featured ? '/api/projects?featured=true' : '/api/projects'
+    const response = await fetch(`/api/projects?featured=${featured}`, {
       next: {
-        revalidate: 3600 // Revalidate every hour
+      revalidate: 3600 // Revalidate every hour
       }
     })
 
@@ -42,7 +42,11 @@ async function fetchProjects(): Promise<Project[]> {
   }
 }
 
-export default function ProjectsSection() {
+interface ProjectsSectionProps {
+  featured: boolean;
+}
+
+export default function ProjectsSection({ featured = false}: ProjectsSectionProps) {
   const router = useRouter()
   const [allProjects, setAllProjects] = useState<Project[]>([])
   const [projects, setProjects] = useState<Project[]>([])
@@ -50,7 +54,7 @@ export default function ProjectsSection() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    fetchProjects().then((data) => {
+    fetchProjects(featured).then((data) => {
       setAllProjects(data)
       setProjects(data) 
     }).finally(() => {
@@ -88,7 +92,7 @@ export default function ProjectsSection() {
               className="mb-2"
             >
               {category === 'Web Development' ? 'Web Dev' :
-                category === 'UI/UX Design' ? 'UI/UX' : category}
+                category}
             </Button>
           ))}
         </div>

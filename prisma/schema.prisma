@@ -13,6 +13,7 @@ model BlogPost {
   slug        String   @unique
   title       String
   category    String
+  featured    Boolean
   img         String
   content     String
   excerpt     String
@@ -31,6 +32,7 @@ model Project {
   description String?
   content     String
   image       String
+  featured    Boolean
   technologies String
   githubLink String?
   liveLink String?

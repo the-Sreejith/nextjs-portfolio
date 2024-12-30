@@ -46,7 +46,7 @@ export default function Navbar() {
 
           {/* Right: CTA Button and Mobile Menu Toggle */}
           <div className="flex items-center gap-4">
-            <Button variant="outline" className="hidden font-semibold md:inline-flex">
+            <Button variant="outline" className="hidden font-semibold md:inline-flex" scrollTo='footer'>
               Contact Me
             </Button>
             <button
