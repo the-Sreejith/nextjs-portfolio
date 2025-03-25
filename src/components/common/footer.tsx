@@ -13,42 +13,25 @@ export default function Footer() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
-    const [isLoading, setIsLoading] = useState(false)
 
     const resetForm = () => {
         setName('')
         setEmail('')
         setMessage('')
         setError('')
+        setSuccess('')
     }
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
-
-        // Reset messages
         setError('')
         setSuccess('')
 
-        // Validate inputs
-        if (!name || name.trim() === '') {
-            setError('Please enter your name')
-            return
-        }
-        if (!email || email.trim() === '') {
-            setError('Please enter your email')
-            return
-        }
-        if (!message || message.trim() === '') {
-            setError('Please enter your message')
-            return
-        }
-
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        if (!emailRegex.test(email)) {
-            setError('Please enter a valid email address')
+        if (!name || !email || !message) {
+            setError('Please fill in all fields')
             return
         }
 
@@ -79,39 +62,27 @@ export default function Footer() {
         }
     }
 
-    return <section id="footer" className="w-full border-t-2 border-zinc-900 bg-zinc-950 ">
-        <div className="container mx-auto py-12 px-8 md:py-20 lg:py-20">
-            <div className="grid gap-10 lg:grid-cols-2">
-                <div className="space-y-8">
-                    <div className="space-y-6">
-                        <h3 className="text-zinc-400 text-lg uppercase tracking-wider">GET IN TOUCH</h3>
-                        <h2 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                            Let's make your brand brilliant!
-                        </h2>
-                        <p className="text-zinc-400 text-sm md:text-lg" >
-                            If you would like to work with me or just want to get in touch, I&apos;d love to hear from you!
-                        </p>
-                    </div>
-                    <Link
-                        href="mailto:ssjksreejith@gmail.com"
-                        className="text-[#1173E2] text-lg md:text-xl font-bold hover:underline inline-block"
-                    >
-                        SSJKSREEJITH@GMAIL.COM
-                    </Link>
-                    <SocialLogo />
+    return <section id="footer" className="w-full border-t bg-background">
+        <div className="container mx-auto px-4 py-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                    <h2 className="text-2xl font-bold text-foreground">Get in Touch</h2>
+                    <p className="text-muted-foreground">
+                        Have a question or want to work together? Feel free to reach out!
+                    </p>
                 </div>
                 <div className="space-y-4">
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="grid gap-4 sm:grid-cols-2">
                             <Input
-                                className="bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-400"
+                                className="bg-muted"
                                 placeholder="Name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 disabled={isLoading}
                             />
                             <Input
-                                className="bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-400"
+                                className="bg-muted"
                                 type="email"
                                 placeholder="Email"
                                 value={email}
@@ -120,7 +91,7 @@ export default function Footer() {
                             />
                         </div>
                         <Textarea
-                            className="min-h-[150px] bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-400"
+                            className="min-h-[150px] bg-muted"
                             placeholder="Message"
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
@@ -128,15 +99,14 @@ export default function Footer() {
                         />
                         <Button
                             type="submit"
-                            className="w-full bg-zinc-900 hover:bg-zinc-800 text-white border-l-4 border-[#1173E2]"
+                            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                             size="lg"
                             disabled={isLoading}
                         >
                             {isLoading ? 'SENDING...' : 'SEND A MESSAGE'}
                         </Button>
-
                         {error && (
-                            <p className="text-red-500 text-sm">{error}</p>
+                            <p className="text-destructive text-sm">{error}</p>
                         )}
                         {success && (
                             <p className="text-green-500 text-sm">{success}</p>
@@ -145,11 +115,10 @@ export default function Footer() {
                 </div>
             </div>
         </div>
-        <div className="text-center  mb-0 p-2 bg-zinc-900 text-zinc-200 text-sm">
+        <div className="text-center p-2 bg-muted text-muted-foreground text-sm">
             <p>
                 &copy; {new Date().getFullYear()} Sreejith. All rights reserved.
             </p>
         </div>
-
     </section>
 }

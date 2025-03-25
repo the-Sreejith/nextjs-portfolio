@@ -2,13 +2,16 @@
 export interface Project {
   id: number;
   title: string;
-  category: string;
+  badge?: string;
+  category?: string;
   description?: string;
   content?: string;
   image: string;
-  technologies: string;
+  technologies?: string[];
   githubLink?: string;
   liveLink?: string;
+  externalLink?: string;
+  size?: "small" | "medium" | "large";
 }
 
 export type ContentBlock =
