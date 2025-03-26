@@ -10,7 +10,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <nav className="sticky top-5 rounded-full max-w-6xl mx-auto z-50 bg-background/80 backdrop-blur-sm border-2 shadow-md shadow-[#1173E2]/30 px-6">
+    <nav className={`sticky top-5 max-w-6xl mx-auto z-50 bg-background/80 backdrop-blur-sm border-2 shadow-md shadow-[#1173E2]/30 px-6 ${mobileMenuOpen ? "rounded-xl" : "rounded-full"}`}    >
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           {/* Left: Name */}
@@ -60,17 +60,17 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 space-y-4">
-            <Link href="https://behance.net" className="block text-muted-foreground hover:text-foreground">
+            <Link href="https://behance.net/thesreejith" className="block text-muted-foreground hover:text-foreground">
               Behance
             </Link>
-            <Link href="https://github.com" className="block text-muted-foreground hover:text-foreground">
+            <Link href="https://github.com/the-sreejith" className="block text-muted-foreground hover:text-foreground">
               GitHub
             </Link>
-            <Link href="https://linkedin.com" className="block text-muted-foreground hover:text-foreground">
+            <Link href="https://linkedin.com/in/thesreejith" className="block text-muted-foreground hover:text-foreground">
               LinkedIn
             </Link>
-            <Link href="https://dribbble.com" className="block text-muted-foreground hover:text-foreground">
-              Dribbble
+            <Link href="https://medium.com/@the-sreejith" className="block text-muted-foreground hover:text-foreground">
+              Medium
             </Link>
             <Button variant="outline" className="w-full" scrollTo='contact'>
               Contact Me
@@ -78,6 +78,6 @@ export default function Navbar() {
           </div>
         )}
       </div>
-    </nav>
+    </nav >
   )
 }

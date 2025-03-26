@@ -5,7 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { Project } from '@/types/Project'
-import CustomCursor from '@/components/ui/CustomCursor'
+import CustomCursor from '@/components/CustomCursor'
 
 // Project data
 const PROJECTS: Project[] = [
