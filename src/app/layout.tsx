@@ -6,6 +6,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import Navbar from "@/components/common/navbar";
 import Footer from "@/components/common/footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Inter } from "next/font/google"
+import { Indie_Flower } from "next/font/google"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,6 +19,13 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+
+const inter = Inter({ subsets: ["latin"] })
+const indieFlower = Indie_Flower({ 
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-indie-flower',
+})
 
 export const metadata: Metadata = {
   title: "the-sreejith",
@@ -31,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-300`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.className} ${indieFlower.variable} antialiased transition-colors duration-300`}
       >
         <ThemeProvider
           attribute="class"
