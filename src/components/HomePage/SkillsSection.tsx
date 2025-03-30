@@ -1,4 +1,4 @@
-import { FileCode2, Zap, Server, Rocket, Figma, Cloud, Code, GithubIcon, Database, PenTool, Video } from "lucide-react"
+import { FileCode2, Zap, Server, Rocket, Figma, Cloud, Code, GithubIcon, Database, Code2 } from "lucide-react"
 
 const skills = [
   { name: "React.js", icon: <FileCode2 className="h-5 w-5" /> },
@@ -6,11 +6,12 @@ const skills = [
   { name: "Node.js", icon: <Server className="h-5 w-5" /> },
   { name: "Flutter", icon: <Rocket className="h-5 w-5" /> },
   { name: "Figma", icon: <Figma className="h-5 w-5" /> },
-  { name: "Copywriting", icon: <PenTool className="h-5 w-5" /> },
-  { name: "Cost Effective", icon: <Cloud className="h-5 w-5" /> },
-  { name: "Optimization", icon: <Zap className="h-5 w-5" /> },
-  { name: "Video & Motion", icon: <Video className="h-5 w-5" /> },
+  { name: "AWS", icon: <Cloud className="h-5 w-5" /> },
+  { name: "Supabase", icon: <Zap className="h-5 w-5" /> },
+  { name: "Postgres", icon: <Database className="h-5 w-5" /> },
+  { name: "Python", icon: <Code2 className="h-5 w-5" /> },
   { name: "JavaScript", icon: <FileCode2 className="h-5 w-5" /> },
+  { name: "Firebase", icon: <Cloud className="h-5 w-5" /> },
   { name: "TypeScript", icon: <FileCode2 className="h-5 w-5" /> },
   { name: "Git", icon: <GithubIcon className="h-5 w-5" /> },
 ]
