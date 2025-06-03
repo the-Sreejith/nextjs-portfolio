@@ -1,43 +1,38 @@
-import { DribbbleIcon, GithubIcon, LinkedinIcon, XIcon, BookOpen } from 'lucide-react'
+import { GithubOutlined, LinkedinOutlined, XOutlined, MediumOutlined, BehanceOutlined } from '@ant-design/icons'
 import Link from 'next/link'
 
-export default function SocialLogo(){
+export default function SocialLogo() {
     return (
         <div className="flex gap-2 items-center">
             <Link
                 href="https://behance.net/thesreejith"
                 target='_blank'
-                className="p-2 bg-muted rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors"
             >
-                Be
+                <BehanceOutlined className="text-2xl p-2.5 rounded-xl border" />
             </Link>
             <Link
                 href="https://github.com/the-sreejith"
                 target='_blank'
-                className="p-2 bg-muted rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors"
             >
-                <GithubIcon className="h-5 w-5" />
+                <GithubOutlined className="text-2xl p-2.5 rounded-xl border" />
             </Link>
             <Link
                 href="https://linkedin.com/in/thesreejith"
                 target='_blank'
-                className="p-2 bg-muted rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors"
             >
-                <LinkedinIcon className="h-5 w-5" />
+                <LinkedinOutlined className="text-2xl p-2.5 rounded-xl border" />
             </Link>
             <Link
                 href="https://x.com/thesreejith_"
                 target='_blank'
-                className="p-2 bg-muted rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors"
             >
-                <XIcon className="h-5 w-5" />
+                <XOutlined className="text-2xl p-2.5 rounded-xl border" />
             </Link>
             <Link
                 href="https://medium.com/@the-sreejith"
                 target='_blank'
-                className="p-2 bg-muted rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors"
             >
-                <BookOpen className="h-5 w-5" />
+                <MediumOutlined className="text-2xl p-2.5 rounded-xl border" />
             </Link>
         </div>
     )

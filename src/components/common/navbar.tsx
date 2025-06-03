@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { GithubIcon, LinkedinIcon, DribbbleIcon, XIcon, Menu } from "lucide-react"
+import { GithubOutlined, LinkedinOutlined, BehanceOutlined, XOutlined, MediumOutlined, MenuOutlined } from '@ant-design/icons'
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function Navbar() {
@@ -21,23 +21,23 @@ export default function Navbar() {
           {/* Center: Social Icons (hidden on mobile) */}
           <div className="hidden md:flex items-center gap-4">
             <Link href="https://behance.net/thesreejith" target='_blank' className="text-muted-foreground hover:text-foreground">
-              Be
+              <BehanceOutlined className="text-2xl rounded-xl shadow-sm border p-2" />
             </Link>
             <Link href="https://github.com/the-sreejith" target='_blank' className="text-muted-foreground hover:text-foreground">
-              <GithubIcon className="h-5 w-5" />
+              <GithubOutlined className="text-2xl rounded-xl shadow-sm border p-2" />
             </Link>
             <Link href="https://linkedin.com/in/thesreejith" target='_blank' className="text-muted-foreground hover:text-foreground">
-              <LinkedinIcon className="h-5 w-5" />
+              <LinkedinOutlined className="text-2xl rounded-xl shadow-sm border p-2" />
             </Link>
-            <Link href="https://dribbble.com/sreejith_sreejayan" target='_blank' className="text-muted-foreground hover:text-foreground">
-              <DribbbleIcon className="h-5 w-5" />
+            <Link href="https://medium.com/@the-sreejith" target='_blank' className="text-muted-foreground hover:text-foreground">
+              <MediumOutlined className="text-2xl rounded-xl shadow-sm border p-2" />
             </Link>
             <Link
               href="https://x.com/thesreejith_"
               target='_blank'
               className="text-muted-foreground hover:text-foreground"
             >
-              <XIcon className="h-5 w-5" />
+              <XOutlined className="text-2xl rounded-xl shadow-sm border p-2" />
             </Link>
           </div>
 
@@ -52,7 +52,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle mobile menu"
             >
-              <Menu className="h-6 w-6" />
+              <MenuOutlined className="text-lg" />
             </button>
           </div>
         </div>
