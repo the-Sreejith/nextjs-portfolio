@@ -63,10 +63,10 @@ export default function Footer() {
     }
 
     return <section id="footer" className="w-full border-t bg-background">
-        <div className="container mx-auto px-4 py-12">
+        <div className="container max-w-6xl mx-auto px-4 py-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                    <h2 className="text-2xl font-bold text-foreground">Get in Touch</h2>
+                    <h2 className="text-5xl font-bold text-foreground">Get in Touch</h2>
                     <p className="text-muted-foreground">
                         Have a question or want to work together? Feel free to reach out!
                     </p>

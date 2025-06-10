@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { GithubOutlined, LinkedinOutlined, BehanceOutlined, XOutlined, MediumOutlined, MenuOutlined } from '@ant-design/icons'
+import { GithubOutlined, LinkedinOutlined, BehanceOutlined, MediumOutlined, MenuOutlined } from '@ant-design/icons'
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function Navbar() {
@@ -14,31 +14,31 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           {/* Left: Name */}
-          <Link href="/" className="text-foreground text-2xl font-bold">
+          <Link href="/" className="text-foreground text-xl font-bold">
             Sreejith Sreejayan
           </Link>
 
           {/* Center: Social Icons (hidden on mobile) */}
           <div className="hidden md:flex items-center gap-4">
-            <Link href="https://behance.net/thesreejith" target='_blank' className="text-muted-foreground hover:text-foreground">
-              <BehanceOutlined className="text-2xl rounded-xl shadow-sm border p-2" />
+            <Link href="https://behance.net/thesreejith" target='_blank' className="text-muted-foreground hover:text-foreground rounded-xl shadow-sm border">
+              <BehanceOutlined className="text-xl p-2" />
             </Link>
-            <Link href="https://github.com/the-sreejith" target='_blank' className="text-muted-foreground hover:text-foreground">
-              <GithubOutlined className="text-2xl rounded-xl shadow-sm border p-2" />
+            <Link href="https://github.com/the-sreejith" target='_blank' className="text-muted-foreground hover:text-foreground rounded-xl shadow-sm border">
+              <GithubOutlined className="text-xl p-2" />
             </Link>
-            <Link href="https://linkedin.com/in/thesreejith" target='_blank' className="text-muted-foreground hover:text-foreground">
-              <LinkedinOutlined className="text-2xl rounded-xl shadow-sm border p-2" />
+            <Link href="https://linkedin.com/in/thesreejith" target='_blank' className="text-muted-foreground hover:text-foreground rounded-xl shadow-sm border">
+              <LinkedinOutlined className="text-xl p-2" />
             </Link>
-            <Link href="https://medium.com/@the-sreejith" target='_blank' className="text-muted-foreground hover:text-foreground">
-              <MediumOutlined className="text-2xl rounded-xl shadow-sm border p-2" />
+            <Link href="https://medium.com/@the-sreejith" target='_blank' className="text-muted-foreground hover:text-foreground rounded-xl shadow-sm border">
+              <MediumOutlined className="text-xl p-2" />
             </Link>
-            <Link
+            {/* <Link
               href="https://x.com/thesreejith_"
               target='_blank'
-              className="text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-foreground rounded-xl shadow-sm border"
             >
-              <XOutlined className="text-2xl rounded-xl shadow-sm border p-2" />
-            </Link>
+              <XOutlined className="text-xl p-2" />
+            </Link> */}
           </div>
 
           {/* Right: CTA Button, Theme Toggle and Mobile Menu Toggle */}

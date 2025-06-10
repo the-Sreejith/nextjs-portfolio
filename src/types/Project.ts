@@ -1,30 +1,17 @@
-// Project interface
+export interface ProjectLink {
+  type: 'github' | 'website' | 'figma' | 'behance' | 'report' | 'other';
+  url: string;
+  label?: string; // Optional custom label for the link button
+}
+
 export interface Project {
   id: number;
   title: string;
-  badge?: string;
-  category?: string;
-  description?: string;
-  content?: string;
+  badge: string;
+  description: string; // Short description for the card
+  longDescription?: string; // Detailed description for the modal
   image: string;
-  technologies?: string[];
-  githubLink?: string;
-  liveLink?: string;
-  externalLink?: string;
+  links: ProjectLink[];
   size?: "small" | "medium" | "large";
+  tags?: string[]; // Optional tags for more details in modal or filtering
 }
-
-export type ContentBlock =
-  | {
-    type: "text";
-    content: string;
-  }
-  | {
-    type: "title";
-    content: string;
-  }
-  | {
-    type: "image";
-    src: string;
-    alt: string;
-  };

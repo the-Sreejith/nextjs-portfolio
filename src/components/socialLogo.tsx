@@ -22,12 +22,12 @@ export default function SocialLogo() {
             >
                 <LinkedinOutlined className="text-2xl p-2.5 rounded-xl border" />
             </Link>
-            <Link
+            {/* <Link
                 href="https://x.com/thesreejith_"
                 target='_blank'
             >
                 <XOutlined className="text-2xl p-2.5 rounded-xl border" />
-            </Link>
+            </Link> */}
             <Link
                 href="https://medium.com/@the-sreejith"
                 target='_blank'

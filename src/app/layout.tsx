@@ -21,15 +21,38 @@ const geistMono = localFont({
 });
 
 const inter = Inter({ subsets: ["latin"] })
-const indieFlower = Indie_Flower({ 
+const indieFlower = Indie_Flower({
   weight: '400',
   subsets: ['latin'],
   variable: '--font-indie-flower',
 })
 
 export const metadata: Metadata = {
-  title: "the-sreejith",
-  description: "Portfolio of Sreejith Sreejayan",
+  title: "Sreejith Sreejayan - Portfolio",
+  description: "Portfolio of Sreejith Sreejayan, a passionate developer and designer.",
+  authors: [{ name: "Sreejith Sreejayan" }],
+  keywords: ["portfolio", "developer", "designer", "sreejith", "sreejayan"],
+  openGraph: {
+    title: "Sreejith Sreejayan - Portfolio",
+    description: "Portfolio of Sreejith Sreejayan, a passionate developer and designer.",
+    url: process.env.NEXT_PUBLIC_SITE_URL,
+    siteName: "Sreejith Sreejayan",
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_SITE_URL}/images/profile-pic.jpg`,
+        width: 400,
+        height: 400,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sreejith Sreejayan - Portfolio",
+    description: "Portfolio of Sreejith Sreejayan, a passionate developer and designer.",
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/images/profile-pic.jpg`],
+  },
 };
 
 export default function RootLayout({
@@ -42,18 +65,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.className} ${indieFlower.variable} antialiased transition-colors duration-300`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange={false}
-        >
-          <Navbar />
-          {children}
-          <Footer />
-          <SpeedInsights />
-          <Analytics />
-        </ThemeProvider>
+        <Navbar />
+        {children}
+        <Footer />
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

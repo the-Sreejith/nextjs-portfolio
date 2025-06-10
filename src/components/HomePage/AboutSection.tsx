@@ -44,15 +44,15 @@ export default function AboutSection() {
   }, [isInView, controls])
 
   return (
-    <div className="py-20 bg-background max-w-6xl mx-auto">
-      <div className="container mx-auto px-4">
+    <section className="py-32 bg-background max-w-6xl mx-auto">
+      <div className="container pt-72 lg:pt-0 mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-block bg-gray-100 dark:bg-gray-800 rounded-full px-4 py-2 mb-4">
+          {/* <div className="inline-block bg-gray-100 dark:bg-gray-800 rounded-full px-4 py-2 mb-4">
             <span className="text-sm font-medium">About Me</span>
-          </div>
+          </div> */}
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            This is {" "}
+            About {" "}
             <span className="text-[#1173E2]">Who I'm</span>
           </h2>
         </div>
@@ -99,10 +99,10 @@ export default function AboutSection() {
           <div className="space-y-6 text-lg md:text-xl text-muted-foreground">
             <SplitText
               className="text-foreground text-2xl lg:text-3xl xl:text-4xl leading-tight"
-              text="As a passionate Software Engineer and UX/UI Designer based in Bangalore, I bring a unique blend of technical expertise and creative vision to every project." />
+              text="As a passionate Software Engineer and UX/UI Designer based in Kerala, I bring a unique blend of technical expertise and creative vision to every project." />
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 } 
