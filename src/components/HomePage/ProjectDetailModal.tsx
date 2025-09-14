@@ -53,7 +53,7 @@ export default function ProjectDetailModal({ project, onClose }: ProjectDetailMo
         {/* Browser-like Header */}
         <div className="flex items-center rounded-t-xl justify-between p-3.5 bg-neutral-100 dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 flex-shrink-0">
           <div className="flex items-center gap-2">
-            <span className="h-3.5 w-3.5 bg-red-500 rounded-full border border-red-600/50"></span>
+            <span onClick={onClose} className="h-3.5 w-3.5 bg-red-500 rounded-full border border-red-600/50"></span>
             <span className="h-3.5 w-3.5 bg-yellow-500 rounded-full border border-yellow-600/50"></span>
             <span className="h-3.5 w-3.5 bg-green-500 rounded-full border border-green-600/50"></span>
           </div>

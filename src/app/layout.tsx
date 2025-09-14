@@ -4,7 +4,6 @@ import "./globals.css";
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Navbar from "@/components/common/navbar";
-import Footer from "@/components/common/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Inter } from "next/font/google"
 import { Indie_Flower } from "next/font/google"
@@ -65,9 +64,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.className} ${indieFlower.variable} antialiased transition-colors duration-300`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+        </ThemeProvider>
         <SpeedInsights />
         <Analytics />
       </body>

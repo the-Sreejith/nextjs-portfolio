@@ -12,14 +12,16 @@ export default function Navbar() {
   return (
     <nav className={`sticky top-5 max-w-6xl mx-auto z-50 bg-background/80 backdrop-blur-sm border-2 shadow-md shadow-[#1173E2]/30 px-6 ${mobileMenuOpen ? "rounded-xl" : "rounded-full"}`}    >
       <div className="container mx-auto px-4 py-4">
-        <div className="flex justify-between items-center">
+        <div className="flex items-center">
           {/* Left: Name */}
-          <Link href="/" className="text-foreground text-xl font-bold">
-            Sreejith Sreejayan
-          </Link>
+          <div className="flex-1">
+            <Link href="/" className="text-foreground text-xl font-bold">
+              Sreejith Sreejayan
+            </Link>
+          </div>
 
           {/* Center: Social Icons (hidden on mobile) */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4 flex-1 justify-center">
             <Link href="https://behance.net/thesreejith" target='_blank' className="text-muted-foreground hover:text-foreground rounded-xl shadow-sm border">
               <BehanceOutlined className="text-xl p-2" />
             </Link>
@@ -32,21 +34,11 @@ export default function Navbar() {
             <Link href="https://medium.com/@the-sreejith" target='_blank' className="text-muted-foreground hover:text-foreground rounded-xl shadow-sm border">
               <MediumOutlined className="text-xl p-2" />
             </Link>
-            {/* <Link
-              href="https://x.com/thesreejith_"
-              target='_blank'
-              className="text-muted-foreground hover:text-foreground rounded-xl shadow-sm border"
-            >
-              <XOutlined className="text-xl p-2" />
-            </Link> */}
           </div>
 
           {/* Right: CTA Button, Theme Toggle and Mobile Menu Toggle */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 flex-1 justify-end">
             <ThemeToggle />
-            <Button variant="outline" className="hidden font-semibold md:inline-flex" scrollTo='footer'>
-              Contact Me
-            </Button>
             <button
               className="md:hidden text-foreground"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

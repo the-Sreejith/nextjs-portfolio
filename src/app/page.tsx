@@ -3,6 +3,8 @@
 import ProjectsSection from '@/components/HomePage/ProjectsSection'
 import AboutSection from '@/components/HomePage/AboutSection'
 import HeroSection from '@/components/HomePage/HeroSection'
+import ContactSection from '@/components/HomePage/ContactSection'
+import TestimonialsSection from '@/components/HomePage/TestimonialsSection'
 import Script from 'next/script'
 
 export default function Home() {
@@ -43,6 +45,12 @@ export default function Home() {
 
           {/* About Section */}
           <AboutSection />
+
+          {/* Testimonials Section */}
+          <TestimonialsSection />
+
+          {/* Contact Section */}
+          <ContactSection />
         </div>
       </div>
     </>
