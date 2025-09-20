@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { motion, useInView, useAnimation } from 'framer-motion'
-import SplitText from '@/components/SplitText'
+import ScrollReveal from '@/components/ScrollReveal'
 
 const photos = [
   {
@@ -44,7 +44,7 @@ export default function AboutSection() {
   }, [isInView, controls])
 
   return (
-    <section className="py-32 bg-background max-w-6xl mx-auto">
+    <section className="py-24 bg-background max-w-6xl mx-auto">
       <div className="container pt-72 lg:pt-0 mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -95,11 +95,14 @@ export default function AboutSection() {
         </div>
 
         {/* About Text */}
-        <div ref={ref} className="max-w-4xl mx-auto text-center">
+        <div ref={ref} className="max-w-5xl mx-auto pt-10">
           <div className="space-y-6 text-lg md:text-xl text-muted-foreground">
-            <SplitText
-              className="text-foreground text-2xl lg:text-3xl xl:text-4xl leading-tight"
-              text="As a passionate Software Engineer and UX/UI Designer based in Kerala, I bring a unique blend of technical expertise and creative vision to every project." />
+            <ScrollReveal
+              textClassName="text-foreground text-2xl lg:text-4xl xl:text-5xl leading-[3rem] tracking-wide font-regular"
+              containerClassName="text-justify"
+            >
+              I build apps that feel simple, thoughtful, and easy to use. My work is about more than just code—I enjoy turning ideas into experiences that people actually love. Whether it's a small side project or a full product, I like collaborating closely, understanding the problem, and creating something that truly fits.
+            </ScrollReveal>
           </div>
         </div>
       </div>

@@ -50,12 +50,9 @@ export default function HeroSection() {
           <div className="space-y-12 lg:text-left text-center py-20 px-4 lg:pl-0">
             <h1 className="text-foreground text-4xl lg:text-5xl xl:text-6xl font-bold">
               Hello, I'm{" "}
-              <span className="text-[#1173E2]">Sreejith Sreejayan</span>, Software Engineer and{" "}
+              <span className="text-[#1173E2]">Sreejith Sreejayan</span>, Frontend Engineer and{" "}
               <span className="inline-block">UX / UI Designer</span> Based in Bangalore.
             </h1>
-            {/* <Button variant="outline" className="h-14 px-8 font-bold text-lg border-primary" scrollTo="footer">
-              Contact Me
-            </Button> */}
           </div>
         </div>
 
