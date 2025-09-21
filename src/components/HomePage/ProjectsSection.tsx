@@ -37,14 +37,13 @@ const PROJECTS: Project[] = [
   },
   {
     id: 3,
-    title: "E-commerce UX/UI",
-    badge: "UX/UI Design",
-    description: "Complete wireframes and prototypes for an e-commerce platform.",
-    longDescription: "A comprehensive UX/UI design project for an e-commerce application, covering both customer-facing and supplier management interfaces. This involved user research, persona creation, journey mapping, wireframing, and high-fidelity prototyping using Figma. The focus was on creating an intuitive, accessible, and engaging shopping experience.",
+    title: "SAAS Dashboard",
+    badge: "Web Application",
+    description: "SAAS application for managing e-commerce.",
+    longDescription: "",
     image: "/images/projects/hireflex.jpg",
     links: [
-      { type: 'figma', url: '#', label: 'View Figma Designs' }, 
-      { type: 'behance', url: '#', label: 'Behance Case Study' } 
+      { type: 'website', url: 'app.komkits.com', label: 'View Live' }
     ],
     size: "small",
     tags: ["UX Design", "UI Design", "Figma", "Prototyping"]

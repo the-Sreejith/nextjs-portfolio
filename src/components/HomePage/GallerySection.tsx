@@ -30,34 +30,34 @@ const GallerySection: React.FC = () => {
       year: '2024'
     },
     {
-      id: 'competishun-1',
-      src: '/images/projects/dataviz.jpg',
-      alt: 'Competishun App',
-      title: 'Competishun',
-      year: '2024'
+      id: 'stroq-1',
+      src: '/images/gallery/stroq.png',
+      alt: 'Stroq App',
+      title: 'Stroq',
+      year: '2022'
     },
     {
       id: 'travel-buddy-1',
-      src: '/images/about/photo2.jpg',
-      alt: 'Travel Buddy Design',
-      title: 'Travel Buddy',
-      year: '2021'
+      src: '/images/gallery/sourcer.png',
+      alt: 'Sourcer Design',
+      title: 'Sourcer',
+      year: '2022'
     }
   ];
 
   const rightColumnItems: GalleryItem[] = [
     {
       id: 'travel-buddy-2',
-      src: '/images/about/photo3.jpg',
-      alt: 'Travel Buddy Mobile',
-      title: 'Travel Buddy',
-      year: '2021'
+      src: '/images/gallery/stroq-1.png',
+      alt: 'Stroq Mobile',
+      title: 'Stroq',
+      year: '2022'
     },
     {
-      id: 'athlos-2',
-      src: '/images/projects/ecotrack.jpg',
-      alt: 'Athlos Mobile Design',
-      title: 'Athlos',
+      id: 'yahoo-2',
+      src: '/images/gallery/yahoo.png',
+      alt: 'Yahoo News Redesign',
+      title: 'Yahoo News',
       year: '2023'
     },
     {
