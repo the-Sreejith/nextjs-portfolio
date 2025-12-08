@@ -12,6 +12,7 @@ export interface Project {
   longDescription?: string; // Detailed description for the modal
   image: string;
   links: ProjectLink[];
+  category: "Web App" | "Mobile App" | "Website";
   size?: "small" | "medium" | "large";
   tags?: string[]; // Optional tags for more details in modal or filtering
 }
