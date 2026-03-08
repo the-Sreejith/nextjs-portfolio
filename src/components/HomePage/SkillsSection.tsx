@@ -1,4 +1,4 @@
-import { FileCode2, Zap, Server, Rocket, Figma, Cloud, Code, GithubIcon, Database, Code2 } from "lucide-react"
+import { FileCode2, Zap, Server, Rocket, Figma, Cloud, GithubIcon, Database, Code2 } from "lucide-react"
 
 const skills = [
   { name: "React.js", icon: <FileCode2 className="h-5 w-5" /> },

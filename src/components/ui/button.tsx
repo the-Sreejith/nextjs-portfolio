@@ -36,14 +36,6 @@ const buttonVariants = cva(
   }
 )
 
-const scrollToContact = (elementId:string) => {
-    const contactSection = document.getElementById(elementId);
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
@@ -52,13 +44,22 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, scrollTo, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, scrollTo, asChild = false, onClick, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
+
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (scrollTo) {
+        const element = document.getElementById(scrollTo)
+        element?.scrollIntoView({ behavior: 'smooth' })
+      }
+      onClick?.(e)
+    }
+
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
-        onClick={() => scrollToContact(scrollTo??'')}
+        onClick={handleClick}
         {...props}
       />
     )

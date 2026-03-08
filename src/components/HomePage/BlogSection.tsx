@@ -16,13 +16,13 @@ async function getMediumPosts(): Promise<BlogPost[]> {
     const parser = new Parser();
     try {
         const feed = await parser.parseURL('https://medium.com/feed/@the-sreejith');
-        const posts = (feed.items ?? []).map((item: any) => ({
-            title: item.title,
-            link: item.link,
-            pubDate: item.pubDate,
-            content: item['content:encoded'] || item.content || '',
-            contentSnippet: item.contentSnippet,
-            categories: item.categories
+        const posts = (feed.items ?? []).map((item: Record<string, unknown>) => ({
+            title: item.title as string,
+            link: item.link as string,
+            pubDate: item.pubDate as string,
+            content: (item['content:encoded'] || item.content || '') as string,
+            contentSnippet: item.contentSnippet as string,
+            categories: item.categories as string[] | undefined
         } as BlogPost));
         // Sort by date (newest first). Medium RSS doesn't expose popularity.
         posts.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
@@ -50,12 +50,12 @@ export default async function BlogSection() {
                 <div className="absolute bottom-20 left-10 font-pixel text-8xl rotate-90">DATA</div>
                 <div className="absolute top-1/3 left-1/4 w-64 h-64 border-4 border-dashed border-foreground/20 rounded-full animate-spin-slow" />
                 <div className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-foreground/10 rotate-45" />
-                {/* Random decorative lines */}
-                {Array.from({ length: 5 }).map((_, i) => (
-                    <div 
-                        key={i} 
+                {/* Decorative lines */}
+                {[12, 34, 56, 73, 91].map((pos, i) => (
+                    <div
+                        key={i}
                         className="absolute h-px bg-foreground/30 w-full"
-                        style={{ top: `${Math.random() * 100}%`, left: 0 }}
+                        style={{ top: `${pos}%`, left: 0 }}
                     />
                 ))}
             </div>
@@ -89,7 +89,7 @@ export default async function BlogSection() {
                                     <span className="bg-[#1173E2] text-white px-2 py-0.5">
                                         IDX_{String(idx).padStart(2, '0')}
                                     </span>
-                                    <span>// {formatDate(post.pubDate)}</span>
+                                    <span>{'// '}{formatDate(post.pubDate)}</span>
                                     {post.categories?.[0] && (
                                         <>
                                             <span className="text-muted-foreground">::</span>

@@ -213,7 +213,7 @@ export default function ProjectsSection() {
                           {project.badge}
                         </span>
                         <span className="text-muted-foreground text-xs uppercase tracking-wider">
-                          // {project.category}
+                          {'// '}{project.category}
                         </span>
                       </div>
 

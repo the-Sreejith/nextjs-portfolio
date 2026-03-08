@@ -5,9 +5,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Navbar from "@/components/common/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Inter } from "next/font/google"
-import { Indie_Flower } from "next/font/google"
-import { VT323 } from "next/font/google"
+import { Indie_Flower, VT323 } from "next/font/google"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,7 +18,6 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-const inter = Inter({ subsets: ["latin"] })
 const indieFlower = Indie_Flower({
   weight: '400',
   subsets: ['latin'],
