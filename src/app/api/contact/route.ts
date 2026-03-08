@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
 
     await transporter.sendMail({
         from: `"Portfolio Website" <${subject}>`, 
-        to: 'ssjksreejith@gmail.com',
+        to: 'buildwithsreejith@gmail.com',
         subject: subject,
         text: `There is a new contact form message: ${message}`,
     });

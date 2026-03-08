@@ -8,6 +8,51 @@ import ProjectDetailModal from '@/components/HomePage/ProjectDetailModal'
 
 const PROJECTS: Project[] = [
   {
+    id: 7,
+    title: "Huspeep",
+    badge: "Mobile App",
+    category: "Mobile App",
+    description: "Home service marketplace connecting homeowners with verified professionals.",
+    longDescription: "Huspeep is a digital marketplace connecting homeowners with background-checked service professionals. Users can post jobs, receive competitive quotations, and hire verified providers in their area. Features include real-time in-app messaging, live job status tracking, transparent pricing, and a rigorous partner approval process. Currently operating in Kochi, Kerala.",
+    image: "/images/projects/huspeep.png",
+    links: [
+      { type: 'website', url: 'https://huspeep.com', label: 'Visit Huspeep' },
+      { type: 'playstore', url: 'https://play.google.com/store/apps/details?id=com.huspeep.customer', label: 'Google Play' }
+    ],
+    size: "medium",
+    tags: ["Marketplace", "Mobile App", "Home Services"]
+  },
+  {
+    id: 6,
+    title: "VCSailor",
+    badge: "AI SaaS",
+    category: "Web App",
+    description: "AI-powered fundraising co-pilot for startup founders.",
+    longDescription: "VCSailor is an AI-powered fundraising co-pilot built for pre-seed and seed-stage founders. It conducts rapid market research by analyzing 236+ sources, generates VC-readiness scores, builds investor-ready pitch decks, and matches founders with relevant venture capital partners. The platform helps quantify TAM, SAM, and SOM metrics and validates business ideas through aggregated data analysis — turning weeks of research into minutes.",
+    image: "/images/projects/vcsailor.png",
+    links: [
+      { type: 'website', url: 'https://vcsailor.com', label: 'Visit VCSailor' }
+    ],
+    size: "medium",
+    tags: ["AI", "SaaS", "Fundraising", "Next.js"]
+  },
+  {
+    id: 8,
+    title: "TakoraMart",
+    badge: "E-Commerce",
+    category: "Mobile App",
+    description: "Multi-vendor e-commerce platform with Android and iOS apps.",
+    longDescription: "TakoraMart is a multi-vendor e-commerce marketplace offering 27+ product categories including groceries, personal care, electronics, and home goods. Built the complete Android and iOS mobile applications alongside the web platform. Features include vendor registration and dashboards, wallet functionality, product search and filtering, and multi-payment support.",
+    image: "/images/projects/takoramart.png",
+    links: [
+      { type: 'website', url: 'https://takoramart.com', label: 'Visit Website' },
+      { type: 'playstore', url: 'https://play.google.com/store/apps/details?id=com.takoramart.android', label: 'Google Play' },
+      { type: 'appstore', url: 'https://apps.apple.com/ph/app/takoramart/id6758244454', label: 'App Store' }
+    ],
+    size: "medium",
+    tags: ["E-Commerce", "Android", "iOS", "Multi-Vendor"]
+  },
+  {
     id: 5,
     title: "Cave Gen Studio",
     badge: "AI Platform",
@@ -55,9 +100,9 @@ const PROJECTS: Project[] = [
     category: "Web App",
     description: "SAAS application for managing e-commerce.",
     longDescription: "",
-    image: "/images/projects/hireflex.jpg",
+    image: "/images/projects/komkits.png",
     links: [
-      { type: 'website', url: 'app.komkits.com', label: 'View Live' }
+      { type: 'website', url: 'https://app.komkits.com/', label: 'View Live' }
     ],
     size: "small",
     tags: ["UX Design", "UI Design", "Figma", "Prototyping"]
@@ -121,7 +166,7 @@ export default function ProjectsSection() {
           </div>
 
           {/* Project Cards - Simple equal grid */}
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div layout className="grid grid-cols-1 gap-8">
             <AnimatePresence>
               {filteredProjects.map((project) => (
                 <motion.div
@@ -148,50 +193,53 @@ export default function ProjectsSection() {
                     </span>
                   </div>
 
-                  {/* Project Image */}
-                  <div className="relative aspect-video overflow-hidden border-b-4 border-black dark:border-white">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-
-                  {/* Project Info */}
-                  <div className="p-5">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="inline-block border-2 border-[#1173E2] text-[#1173E2] px-3 py-0.5 text-xs uppercase tracking-widest">
-                        {project.badge}
-                      </span>
-                      <span className="text-muted-foreground text-xs uppercase tracking-wider">
-                        // {project.category}
-                      </span>
+                  {/* Two-column: Image left, Text right — match blog card height (369px) */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 min-h-0 md:h-[369px]">
+                    {/* Project Image - left */}
+                    <div className="relative min-h-[220px] md:min-h-0 md:h-full overflow-hidden border-b-4 md:border-b-0 md:border-r-4 border-black dark:border-white">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(min-width: 768px) 50vw, (min-width: 1200px) 576px, 100vw"
+                      />
                     </div>
 
-                    <h3 className="text-xl uppercase tracking-wider text-foreground mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                      {project.description}
-                    </p>
-
-                    {/* Tags */}
-                    {project.tags && (
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tags.map(tag => (
-                          <span key={tag} className="border-2 border-black dark:border-white px-2 py-0.5 text-xs uppercase tracking-wider text-foreground">
-                            {tag}
-                          </span>
-                        ))}
+                    {/* Project Info - right */}
+                    <div className="p-5 flex flex-col justify-center">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="inline-block border-2 border-[#1173E2] text-[#1173E2] px-3 py-0.5 text-xs uppercase tracking-widest">
+                          {project.badge}
+                        </span>
+                        <span className="text-muted-foreground text-xs uppercase tracking-wider">
+                          // {project.category}
+                        </span>
                       </div>
-                    )}
 
-                    {/* CTA */}
-                    <div className="flex items-center gap-2 text-[#1173E2] text-sm uppercase tracking-widest group-hover:translate-x-2 transition-transform">
-                      <span className="animate-blink">{'>'}</span>
-                      <span>View Project</span>
+                      <h3 className="text-xl uppercase tracking-wider text-foreground mb-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                        {project.description}
+                      </p>
+
+                      {/* Tags */}
+                      {project.tags && (
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {project.tags.map(tag => (
+                            <span key={tag} className="border-2 border-black dark:border-white px-2 py-0.5 text-xs uppercase tracking-wider text-foreground">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* CTA */}
+                      <div className="flex items-center gap-2 text-[#1173E2] text-sm uppercase tracking-widest group-hover:translate-x-2 transition-transform">
+                        <span className="animate-blink">{'>'}</span>
+                        <span>View Project</span>
+                      </div>
                     </div>
                   </div>
                 </motion.div>

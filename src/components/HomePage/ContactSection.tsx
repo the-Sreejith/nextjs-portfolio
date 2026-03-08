@@ -6,7 +6,7 @@ const contactLinks = [
   {
     id: 1,
     label: "EMAIL",
-    href: "mailto:ssjksreejith@gmail.com"
+    href: "mailto:buildwithsreejith@gmail.com"
   },
   {
     id: 2,
@@ -20,6 +20,16 @@ const contactLinks = [
   },
   {
     id: 4,
+    label: "YOUTUBE",
+    href: "https://youtube.com/@buildwithsreejith"
+  },
+  {
+    id: 5,
+    label: "INSTAGRAM",
+    href: "https://instagram.com/buildwithsreejith"
+  },
+  {
+    id: 6,
     label: "RESUME",
     href: "/resume.pdf"
   }

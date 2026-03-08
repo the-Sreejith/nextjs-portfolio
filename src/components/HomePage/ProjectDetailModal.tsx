@@ -3,7 +3,7 @@
 import { Project, ProjectLink } from '@/types/Project';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { X, Github, Globe, Figma, FileText, Link as LinkIcon, ExternalLink } from 'lucide-react';
+import { X, Github, Globe, Figma, FileText, Link as LinkIcon, ExternalLink, Smartphone } from 'lucide-react';
 
 interface ProjectDetailModalProps {
   project: Project;
@@ -17,6 +17,8 @@ const getLinkIcon = (type: ProjectLink['type']) => {
     case 'figma': return <Figma size={16} />;
     case 'behance': return <LinkIcon size={16} />;
     case 'report': return <FileText size={16} />;
+    case 'playstore': return <Smartphone size={16} />;
+    case 'appstore': return <Smartphone size={16} />;
     default: return <LinkIcon size={16} />;
   }
 };
@@ -29,6 +31,8 @@ const getLinkText = (type: ProjectLink['type'], label?: string) => {
     case 'figma': return 'Figma Design';
     case 'behance': return 'Behance';
     case 'report': return 'Case Study';
+    case 'playstore': return 'Google Play';
+    case 'appstore': return 'App Store';
     default: return 'View Link';
   }
 };

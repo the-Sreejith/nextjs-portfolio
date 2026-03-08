@@ -25,6 +25,11 @@ const photos = [
     id: 4,
     src: "/images/about/photo4.jpg",
     alt: "Having some work life balance",
+  },
+  {
+    id: 5,
+    src: "/images/about/photo5.png",
+    alt: "Google Cloud Agentic AI Hackathon, Bangalore",
   }
 ]
 
@@ -54,7 +59,7 @@ export default function AboutSection() {
         </div>
 
         {/* Photo Grid - Pixel Frames */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
           {photos.map((photo) => (
             <motion.div
               key={photo.id}
@@ -64,7 +69,7 @@ export default function AboutSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: photo.id * 0.15 }}
             >
-              <div className="bg-white dark:bg-zinc-900 border-4 border-black dark:border-white shadow-[6px_6px_0_0_#000] dark:shadow-[6px_6px_0_0_#fff] p-3 hover:-translate-y-1 hover:shadow-[10px_10px_0_0_#000] dark:hover:shadow-[10px_10px_0_0_#fff] transition-all duration-200">
+              <div className="h-full bg-white dark:bg-zinc-900 border-4 border-black dark:border-white shadow-[6px_6px_0_0_#000] dark:shadow-[6px_6px_0_0_#fff] p-3 hover:-translate-y-1 hover:shadow-[10px_10px_0_0_#000] dark:hover:shadow-[10px_10px_0_0_#fff] transition-all duration-200 flex flex-col">
                 {/* Photo */}
                 <div className="relative aspect-[3/4] overflow-hidden border-2 border-black dark:border-white mb-3">
                   <Image
@@ -72,11 +77,11 @@ export default function AboutSection() {
                     alt={photo.alt}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
                   />
                 </div>
                 {/* Caption */}
-                <div className="text-center text-sm text-muted-foreground uppercase tracking-wider">
+                <div className="text-center text-sm text-muted-foreground uppercase tracking-wider mt-auto">
                   {photo.alt}
                 </div>
               </div>

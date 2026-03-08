@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { GithubOutlined, LinkedinOutlined, BehanceOutlined, MediumOutlined, MenuOutlined, CloseOutlined } from '@ant-design/icons'
+import { GithubOutlined, LinkedinOutlined, YoutubeOutlined, InstagramOutlined, MediumOutlined, MenuOutlined, CloseOutlined } from '@ant-design/icons'
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function Navbar() {
@@ -16,20 +16,23 @@ export default function Navbar() {
           {/* Left: Name */}
           <div className="flex-1">
             <Link href="/" className="text-foreground text-xl uppercase tracking-widest hover:text-[#1173E2] transition-colors">
-              Sreejith.exe
+              sreejith.me
             </Link>
           </div>
 
           {/* Center: Social Icons (hidden on mobile) */}
           <div className="hidden md:flex items-center gap-2 flex-1 justify-center">
-            <Link href="https://behance.net/thesreejith" target='_blank' className="text-muted-foreground hover:text-[#1173E2] border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all">
-              <BehanceOutlined className="text-lg p-1.5" />
-            </Link>
             <Link href="https://github.com/the-sreejith" target='_blank' className="text-muted-foreground hover:text-[#1173E2] border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all">
               <GithubOutlined className="text-lg p-1.5" />
             </Link>
             <Link href="https://linkedin.com/in/thesreejith" target='_blank' className="text-muted-foreground hover:text-[#1173E2] border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all">
               <LinkedinOutlined className="text-lg p-1.5" />
+            </Link>
+            <Link href="https://youtube.com/@buildwithsreejith" target='_blank' className="text-muted-foreground hover:text-[#1173E2] border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all">
+              <YoutubeOutlined className="text-lg p-1.5" />
+            </Link>
+            <Link href="https://instagram.com/buildwithsreejith" target='_blank' className="text-muted-foreground hover:text-[#1173E2] border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all">
+              <InstagramOutlined className="text-lg p-1.5" />
             </Link>
             <Link href="https://medium.com/@the-sreejith" target='_blank' className="text-muted-foreground hover:text-[#1173E2] border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all">
               <MediumOutlined className="text-lg p-1.5" />
@@ -52,14 +55,17 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 border-t-4 border-black dark:border-white pt-4 space-y-2">
-            <Link href="https://behance.net/thesreejith" className="block text-muted-foreground hover:text-[#1173E2] uppercase tracking-wider py-1">
-              {'>'} Behance
-            </Link>
             <Link href="https://github.com/the-sreejith" className="block text-muted-foreground hover:text-[#1173E2] uppercase tracking-wider py-1">
               {'>'} GitHub
             </Link>
             <Link href="https://linkedin.com/in/thesreejith" className="block text-muted-foreground hover:text-[#1173E2] uppercase tracking-wider py-1">
               {'>'} LinkedIn
+            </Link>
+            <Link href="https://youtube.com/@buildwithsreejith" className="block text-muted-foreground hover:text-[#1173E2] uppercase tracking-wider py-1">
+              {'>'} YouTube
+            </Link>
+            <Link href="https://instagram.com/buildwithsreejith" className="block text-muted-foreground hover:text-[#1173E2] uppercase tracking-wider py-1">
+              {'>'} Instagram
             </Link>
             <Link href="https://medium.com/@the-sreejith" className="block text-muted-foreground hover:text-[#1173E2] uppercase tracking-wider py-1">
               {'>'} Medium

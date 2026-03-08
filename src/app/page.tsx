@@ -6,7 +6,6 @@ import HeroSection from '@/components/HomePage/HeroSection'
 import ContactSection from '@/components/HomePage/ContactSection'
 import TestimonialsSection from '@/components/HomePage/TestimonialsSection'
 import BlogSection from '@/components/HomePage/BlogSection'
-import GallerySection from '@/components/HomePage/GallerySection'
 import Script from 'next/script'
 
 export default function Home() {
@@ -47,9 +46,6 @@ export default function Home() {
 
           {/* Blog Section */}
           <BlogSection />
-
-          {/* Gallery Section */}
-          <GallerySection />
 
           {/* About Section */}
           <AboutSection />

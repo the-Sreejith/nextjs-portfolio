@@ -1,5 +1,5 @@
 export interface ProjectLink {
-  type: 'github' | 'website' | 'figma' | 'behance' | 'report' | 'other';
+  type: 'github' | 'website' | 'figma' | 'behance' | 'report' | 'playstore' | 'appstore' | 'other';
   url: string;
   label?: string; // Optional custom label for the link button
 }
