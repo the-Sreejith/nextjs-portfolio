@@ -7,6 +7,7 @@ import Navbar from "@/components/common/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Inter } from "next/font/google"
 import { Indie_Flower } from "next/font/google"
+import { VT323 } from "next/font/google"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,6 +25,11 @@ const indieFlower = Indie_Flower({
   weight: '400',
   subsets: ['latin'],
   variable: '--font-indie-flower',
+})
+const vt323 = VT323({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-vt323',
 })
 
 export const metadata: Metadata = {
@@ -62,7 +68,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.className} ${indieFlower.variable} antialiased transition-colors duration-300`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.className} ${indieFlower.variable} ${vt323.variable} antialiased transition-colors duration-300`}
       >
         <ThemeProvider
           attribute="class"

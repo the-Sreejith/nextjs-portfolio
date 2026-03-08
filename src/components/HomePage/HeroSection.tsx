@@ -1,4 +1,4 @@
-import Image from "next/image"
+import PixelHeroSprite from "./PixelHeroSprite"
 import { Button } from "@/components/ui/button"
 import SocialLogo from '@/components/socialLogo'
 import { FileCode2, Zap, Server, Rocket, Figma, Cloud, Code, GithubIcon, Database, Code2 } from "lucide-react"
@@ -25,33 +25,31 @@ export default function HeroSection() {
       <div className="px-4 py-12 flex items-center">
         <div className="grid lg:grid-cols-2 items-center">
           {/* Left Column - Image */}
-          <div className="bg-card border rounded-lg overflow-hidden w-[350px] px-8 py-10 mx-auto md:w-[400px]">
-            <div>
-              <Image
-                src='/images/profile-pic.jpg'
-                alt="Profile"
-                width={500}
-                height={500}
-                className="rounded-lg aspect-square object-cover"
-                priority
-              />
+          <div className="bg-white dark:bg-zinc-900 border-4 border-black dark:border-white w-[350px] px-8 py-10 mx-auto md:w-[400px] shadow-[8px_8px_0_0_#000] dark:shadow-[8px_8px_0_0_#fff] transition-transform hover:-translate-y-1 hover:shadow-[12px_12px_0_0_#000] dark:hover:shadow-[12px_12px_0_0_#fff]">
+            <div className="flex justify-center border-b-4 border-black dark:border-white pb-6 mb-6">
+              <PixelHeroSprite />
             </div>
-            <div className="space-y-4 mt-8">
-              <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                <div className="h-2 w-2 bg-green-400 rounded-full font-semibold" />
-                <span>AVAILABLE FOR FREELANCE</span>
+            <div className="space-y-4">
+              <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm font-pixel text-xl uppercase tracking-widest">
+                <div className="h-3 w-3 bg-green-500 border-2 border-black dark:border-white" />
+                <span>Player 1 Ready</span>
               </div>
-              <h3 className="text-foreground text-2xl font-bold">Sreejith Sreejayan</h3>
+              <h3 className="text-foreground text-3xl font-pixel text-center uppercase tracking-wide">Sreejith Sreejayan</h3>
               <SocialLogo />
             </div>
           </div>
 
           {/* Right Column - Content */}
-          <div className="space-y-12 lg:text-left text-center py-20 px-4 lg:pl-0">
-            <h1 className="text-foreground text-4xl lg:text-5xl xl:text-6xl font-bold">
+          <div className="space-y-12 lg:text-left text-center py-20 px-4 lg:pl-10">
+            <h1 className="text-foreground text-5xl lg:text-6xl xl:text-7xl font-pixel uppercase tracking-wider leading-tight">
               Hello, I'm{" "}
-              <span className="text-[#1173E2]">Sreejith Sreejayan</span>, Frontend Engineer and{" "}
-              <span className="inline-block">UX / UI Designer</span> Based in Bangalore.
+              <span className="text-[#1173E2]">Sreejith Sreejayan</span>,<br />
+              Frontend Engineer &{" "}
+              <span className="inline-block relative">
+                UX / UI Designer
+                <div className="absolute -bottom-2 left-0 w-full h-2 bg-[#1173E2] -z-10 skew-x-12"></div>
+              </span>
+              <br />Based in Bangalore.
             </h1>
           </div>
         </div>
@@ -66,21 +64,21 @@ export default function HeroSection() {
         <div className="flex whitespace-nowrap animate-marquee">
           {/* First set of skills */}
           {skills.map((skill, index) => (
-            <div key={`skill-1-${index}`} className="flex items-center rounded-full bg-white dark:bg-gray-800 shadow-sm px-5 py-2 mx-2 whitespace-nowrap">
-              <div className="text-[#1173E2] mr-2">
+            <div key={`skill-1-${index}`} className="flex items-center bg-white dark:bg-zinc-900 border-4 border-black dark:border-white shadow-[4px_4px_0_0_#000] dark:shadow-[4px_4px_0_0_#fff] px-5 py-2 mx-3 whitespace-nowrap transition-transform hover:-translate-y-1">
+              <div className="text-[#1173E2] mr-3">
                 {skill.icon}
               </div>
-              <span className="text-sm font-medium">{skill.name}</span>
+              <span className="font-pixel text-xl uppercase tracking-wider">{skill.name}</span>
             </div>
           ))}
 
           {/* Duplicate set for seamless loop */}
           {skills.map((skill, index) => (
-            <div key={`skill-2-${index}`} className="flex items-center rounded-full bg-white dark:bg-gray-800 shadow-sm px-5 py-2 mx-2 whitespace-nowrap">
-              <div className="text-[#1173E2] mr-2">
+            <div key={`skill-2-${index}`} className="flex items-center bg-white dark:bg-zinc-900 border-4 border-black dark:border-white shadow-[4px_4px_0_0_#000] dark:shadow-[4px_4px_0_0_#fff] px-5 py-2 mx-3 whitespace-nowrap transition-transform hover:-translate-y-1">
+              <div className="text-[#1173E2] mr-3">
                 {skill.icon}
               </div>
-              <span className="text-sm font-medium">{skill.name}</span>
+              <span className="font-pixel text-xl uppercase tracking-wider">{skill.name}</span>
             </div>
           ))}
         </div>
@@ -89,21 +87,21 @@ export default function HeroSection() {
         <div className="flex whitespace-nowrap animate-marquee-reverse mt-4">
           {/* Offset second row */}
           {[...skills].reverse().map((skill, index) => (
-            <div key={`skill-3-${index}`} className="flex items-center rounded-full bg-white dark:bg-gray-800 shadow-sm px-5 py-2 mx-2 whitespace-nowrap">
-              <div className="text-[#1173E2] mr-2">
+            <div key={`skill-3-${index}`} className="flex items-center bg-white dark:bg-zinc-900 border-4 border-black dark:border-white shadow-[4px_4px_0_0_#000] dark:shadow-[4px_4px_0_0_#fff] px-5 py-2 mx-3 whitespace-nowrap transition-transform hover:-translate-y-1">
+              <div className="text-[#1173E2] mr-3">
                 {skill.icon}
               </div>
-              <span className="text-sm font-medium">{skill.name}</span>
+              <span className="font-pixel text-xl uppercase tracking-wider">{skill.name}</span>
             </div>
           ))}
 
           {/* Duplicate set for seamless loop */}
           {[...skills].reverse().map((skill, index) => (
-            <div key={`skill-4-${index}`} className="flex items-center rounded-full bg-white dark:bg-gray-800 shadow-sm px-5 py-2 mx-2 whitespace-nowrap">
-              <div className="text-[#1173E2] mr-2">
+            <div key={`skill-4-${index}`} className="flex items-center bg-white dark:bg-zinc-900 border-4 border-black dark:border-white shadow-[4px_4px_0_0_#000] dark:shadow-[4px_4px_0_0_#fff] px-5 py-2 mx-3 whitespace-nowrap transition-transform hover:-translate-y-1">
+              <div className="text-[#1173E2] mr-3">
                 {skill.icon}
               </div>
-              <span className="text-sm font-medium">{skill.name}</span>
+              <span className="font-pixel text-xl uppercase tracking-wider">{skill.name}</span>
             </div>
           ))}
         </div>
