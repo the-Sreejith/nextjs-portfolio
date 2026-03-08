@@ -20,16 +20,6 @@ const contactLinks = [
   },
   {
     id: 4,
-    label: "YOUTUBE",
-    href: "https://youtube.com/@buildwithsreejith"
-  },
-  {
-    id: 5,
-    label: "INSTAGRAM",
-    href: "https://instagram.com/buildwithsreejith"
-  },
-  {
-    id: 6,
     label: "RESUME",
     href: "/resume.pdf"
   }
