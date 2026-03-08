@@ -34,14 +34,19 @@ const config: Config = {
 					from: { backgroundPosition: "0px -512px" },
 					to: { backgroundPosition: "-1536px -512px" },
 				},
+				"blink": {
+					"0%, 100%": { opacity: "1" },
+					"50%": { opacity: "0" },
+				},
 			},
 			animation: {
 				"accordion-down": "accordion-down 0.2s ease-out",
 				"accordion-up": "accordion-up 0.2s ease-out",
 				"marquee": "marquee 35s linear infinite",
 				"marquee-reverse": "marquee-reverse 40s linear infinite",
-				"pixel-idle": "pixel-idle 3s steps(6) infinite",
-				"pixel-hover": "pixel-hover 1.5s steps(6) infinite",
+				"pixel-idle": "pixel-idle 5s steps(6) infinite",
+				"pixel-hover": "pixel-hover 4s steps(6) infinite",
+				"blink": "blink 2s steps(1) infinite",
 			},
 			colors: {
 				background: 'hsl(var(--background))',
@@ -86,9 +91,14 @@ const config: Config = {
 				}
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				lg: '0px',
+				md: '0px',
+				sm: '0px',
+				xl: '0px',
+				'2xl': '0px',
+				'3xl': '0px',
+				full: '0px',
+				DEFAULT: '0px',
 			},
 			fontFamily: {
 				handwriting: ['var(--font-indie-flower)'],

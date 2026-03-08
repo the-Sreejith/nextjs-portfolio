@@ -68,7 +68,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.className} ${indieFlower.variable} ${vt323.variable} antialiased transition-colors duration-300`}
+        className={`${geistSans.variable} ${geistMono.variable} ${indieFlower.variable} ${vt323.variable} font-pixel antialiased transition-colors duration-300`}
       >
         <ThemeProvider
           attribute="class"

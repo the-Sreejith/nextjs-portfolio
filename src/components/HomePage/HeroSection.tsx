@@ -42,14 +42,12 @@ export default function HeroSection() {
           {/* Right Column - Content */}
           <div className="space-y-12 lg:text-left text-center py-20 px-4 lg:pl-10">
             <h1 className="text-foreground text-5xl lg:text-6xl xl:text-7xl font-pixel uppercase tracking-wider leading-tight">
-              Hello, I'm{" "}
-              <span className="text-[#1173E2]">Sreejith Sreejayan</span>,<br />
-              Frontend Engineer &{" "}
+              Hello, I&apos;m{" "}
+              <span className="text-[#1173E2]">Sreejith</span>,<br />
               <span className="inline-block relative">
-                UX / UI Designer
+                I build things with AI
                 <div className="absolute -bottom-2 left-0 w-full h-2 bg-[#1173E2] -z-10 skew-x-12"></div>
               </span>
-              <br />Based in Bangalore.
             </h1>
           </div>
         </div>

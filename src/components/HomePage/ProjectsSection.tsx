@@ -2,14 +2,10 @@
 
 import { useState } from 'react'
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
-import { Pointer } from "@/components/magicui/pointer"
 import { motion, AnimatePresence } from "framer-motion"
 import { Project } from '@/types/Project'
 import ProjectDetailModal from '@/components/HomePage/ProjectDetailModal'
 
-
-// Project data
 const PROJECTS: Project[] = [
   {
     id: 5,
@@ -85,7 +81,6 @@ const PROJECTS: Project[] = [
 const FILTER_CATEGORIES = ["All", "Web App", "Website", "Mobile App"];
 
 export default function ProjectsSection() {
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeCategory, setActiveCategory] = useState("All");
 
@@ -93,152 +88,118 @@ export default function ProjectsSection() {
     activeCategory === "All" || project.category === activeCategory
   );
 
-  const getAspectRatio = (size?: string) => {
-    switch (size) {
-      case "large": return "aspect-[16/9]";
-      case "medium": return "aspect-[16/9]";
-      case "small": return "aspect-square";
-      default: return "aspect-[16/9]";
-    }
-  };
-
-  const getCustomPointerContent = () => {
-    return (
-      <motion.div
-        className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-black dark:text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg border border-gray-200 dark:border-gray-700"
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{
-          scale: [0.95, 1, 0.95],
-          opacity: 1,
-          y: [0, -2, 0]
-        }}
-        transition={{
-          scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-          y: { duration: 1.5, repeat: Infinity, ease: "easeInOut" },
-          opacity: { duration: 0.3, ease: "easeOut" }
-        }}
-      >
-        <span>View Details</span>
-        <motion.div
-          animate={{ x: [0, 3, 0], rotate: [0, 5, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ArrowRight className="h-4 w-4" />
-        </motion.div>
-      </motion.div>
-    );
-  };
-
-  const handleProjectCardClick = (project: Project) => {
-    setSelectedProject(project);
-  };
-
   return (
     <>
-      <div className="py-20 bg-background relative">
-        <div className="container max-w-7xl mx-auto px-4">
+      <section className="py-20 bg-background relative" id="projects">
+        <div className="container max-w-6xl mx-auto px-4">
+          {/* Section Header */}
           <div className="text-center mb-12">
-            <div className="inline-block bg-gray-100 dark:bg-gray-800 rounded-full px-4 py-2 mb-4">
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Projects</span>
+            <div className="inline-block bg-[#1173E2] border-4 border-black dark:border-white px-6 py-2 mb-6 shadow-[4px_4px_0_0_#000] dark:shadow-[4px_4px_0_0_#fff]">
+              <span className="text-white text-lg uppercase tracking-[0.2em]">Quest Log</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
+            <h2 className="text-4xl md:text-5xl uppercase tracking-wider text-foreground">
               My Recent{" "}
               <span className="text-[#1173E2]">Works</span>
             </h2>
-
-            {/* Filter Buttons */}
-            <div id="projects-filter" className="relative z-20 flex flex-wrap justify-center gap-2 mb-8">
-              {FILTER_CATEGORIES.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border
-                    ${activeCategory === category
-                      ? "bg-[#1173E2] text-white border-[#1173E2] shadow-md transform scale-105"
-                      : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
-                    }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
           </div>
 
-          <motion.div
-            layout
-            className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6 auto-rows-[minmax(0,_1fr)]"
-          >
+          {/* Filter Tabs */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {FILTER_CATEGORIES.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-6 py-2 text-sm uppercase tracking-widest border-4 transition-all duration-200
+                  ${activeCategory === category
+                    ? "bg-[#1173E2] text-white border-black dark:border-white shadow-[4px_4px_0_0_#000] dark:shadow-[4px_4px_0_0_#fff]"
+                    : "bg-white dark:bg-zinc-900 text-foreground border-black dark:border-white shadow-[2px_2px_0_0_#000] dark:shadow-[2px_2px_0_0_#fff] hover:shadow-[4px_4px_0_0_#000] dark:hover:shadow-[4px_4px_0_0_#fff] hover:-translate-y-0.5"
+                  }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+
+          {/* Project Cards - Simple equal grid */}
+          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <AnimatePresence>
-              {filteredProjects.map((project) => {
-                let colSpan = "md:col-span-3 lg:col-span-2"; // small: 2 cols
-                if (project.size === "large") colSpan = "md:col-span-3 lg:col-span-4";
-                if (project.size === "medium") colSpan = "md:col-span-3 lg:col-span-3"; // medium: 3 cols
-
-                return (
-                  <motion.div
-                    layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.3 }}
-                    key={project.id}
-                    className={`group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer ${colSpan} 
-                              transition-all duration-300 hover:shadow-2xl focus-visible:outline-none 
-                              focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 
-                              focus-visible:ring-offset-background h-full`} // Added h-full to ensure equal height behavior if needed
-                    onClick={() => handleProjectCardClick(project)}
-                    onMouseEnter={() => setHoveredProject(project.id)}
-                    onMouseLeave={() => setHoveredProject(null)}
-                    tabIndex={0}
-                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleProjectCardClick(project); }}
-                  >
-                    <div className={`relative w-full h-full overflow-hidden ${getAspectRatio(project.size)}`}>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 
-                                    opacity-80 group-hover:opacity-40 transition-opacity duration-300" />
-                      <div className="absolute inset-0 bg-gray-900/20 z-10 
-                                    transition-all duration-300 group-hover:bg-gray-900/60" />
-
-                      <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-105">
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                      </div>
-
-                      {/* Content: Initially hidden, appears on hover */}
-                      <div className="absolute inset-0 z-20 p-6 md:p-8 flex flex-col justify-end
-                                    opacity-0 group-hover:opacity-100 
-                                    transform translate-y-4 group-hover:translate-y-0 
-                                    transition-all duration-300 ease-out">
-                        <div>
-                          <span className="inline-block px-3 py-1 text-xs font-semibold bg-white/90 dark:bg-gray-900/90 text-gray-900 dark:text-white rounded-full mb-2 shadow-sm">
-                            {project.badge}
-                          </span>
-                          <h3 className="text-xl md:text-2xl font-bold text-white mb-1 shadow-black [text-shadow:_0_1px_3px_var(--tw-shadow-color)]">
-                            {project.title}
-                          </h3>
-                          <p className="text-white/80 text-sm md:text-base mb-0 line-clamp-2  shadow-black [text-shadow:_0_1px_2px_var(--tw-shadow-color)]">
-                            {project.description}
-                          </p>
-                        </div>
-                      </div>
-
-
-                      {/* Custom "View Details" Pointer, appears on hover over card */}
-                      <Pointer className="absolute inset-0 z-30"> {/* Ensure Pointer takes className to be positioned */}
-                        {hoveredProject === project.id && getCustomPointerContent()}
-                      </Pointer>
+              {filteredProjects.map((project) => (
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                  key={project.id}
+                  className="group cursor-pointer bg-white dark:bg-zinc-900 border-4 border-black dark:border-white shadow-[6px_6px_0_0_#000] dark:shadow-[6px_6px_0_0_#fff] overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-[10px_10px_0_0_#000] dark:hover:shadow-[10px_10px_0_0_#fff]"
+                  onClick={() => setSelectedProject(project)}
+                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setSelectedProject(project); }}
+                >
+                  {/* Window Title Bar */}
+                  <div className="flex items-center gap-2 px-4 py-2 bg-[#1173E2] border-b-4 border-black dark:border-white">
+                    <div className="flex gap-1.5">
+                      <span className="h-3 w-3 bg-white border-2 border-black" />
+                      <span className="h-3 w-3 bg-white/50 border-2 border-black" />
+                      <span className="h-3 w-3 bg-white/30 border-2 border-black" />
                     </div>
-                  </motion.div>
-                );
-              })}
+                    <span className="text-white text-sm uppercase tracking-widest ml-2 truncate">
+                      {project.title}
+                    </span>
+                  </div>
+
+                  {/* Project Image */}
+                  <div className="relative aspect-video overflow-hidden border-b-4 border-black dark:border-white">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+
+                  {/* Project Info */}
+                  <div className="p-5">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="inline-block border-2 border-[#1173E2] text-[#1173E2] px-3 py-0.5 text-xs uppercase tracking-widest">
+                        {project.badge}
+                      </span>
+                      <span className="text-muted-foreground text-xs uppercase tracking-wider">
+                        // {project.category}
+                      </span>
+                    </div>
+
+                    <h3 className="text-xl uppercase tracking-wider text-foreground mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+
+                    {/* Tags */}
+                    {project.tags && (
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.tags.map(tag => (
+                          <span key={tag} className="border-2 border-black dark:border-white px-2 py-0.5 text-xs uppercase tracking-wider text-foreground">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* CTA */}
+                    <div className="flex items-center gap-2 text-[#1173E2] text-sm uppercase tracking-widest group-hover:translate-x-2 transition-transform">
+                      <span className="animate-blink">{'>'}</span>
+                      <span>View Project</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </AnimatePresence>
           </motion.div>
         </div>
-      </div>
+      </section>
 
       <AnimatePresence>
         {selectedProject && (
