@@ -6,31 +6,36 @@ export default function SocialLogo() {
         <div className="flex gap-2 items-center justify-center">
             <Link
                 href="https://github.com/the-sreejith"
-                target='_blank'
+                target="_blank"
+                rel="noopener noreferrer"
             >
                 <GithubOutlined className="text-2xl p-2 border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all" />
             </Link>
             <Link
                 href="https://linkedin.com/in/thesreejith"
-                target='_blank'
+                target="_blank"
+                rel="noopener noreferrer"
             >
                 <LinkedinOutlined className="text-2xl p-2 border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all" />
             </Link>
             <Link
                 href="https://youtube.com/@buildwithsreejith"
-                target='_blank'
+                target="_blank"
+                rel="noopener noreferrer"
             >
                 <YoutubeOutlined className="text-2xl p-2 border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all" />
             </Link>
             <Link
                 href="https://instagram.com/buildwithsreejith"
-                target='_blank'
+                target="_blank"
+                rel="noopener noreferrer"
             >
                 <InstagramOutlined className="text-2xl p-2 border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all" />
             </Link>
             <Link
                 href="https://medium.com/@the-sreejith"
-                target='_blank'
+                target="_blank"
+                rel="noopener noreferrer"
             >
                 <MediumOutlined className="text-2xl p-2 border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all" />
             </Link>

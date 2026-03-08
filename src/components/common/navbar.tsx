@@ -22,19 +22,19 @@ export default function Navbar() {
 
           {/* Center: Social Icons (hidden on mobile) */}
           <div className="hidden md:flex items-center gap-2 flex-1 justify-center">
-            <Link href="https://github.com/the-sreejith" target='_blank' className="text-muted-foreground hover:text-[#1173E2] border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all">
+            <Link href="https://github.com/the-sreejith" target="_blank" rel="noopener noreferrer" className="text-muted-foreground border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all">
               <GithubOutlined className="text-lg p-1.5" />
             </Link>
-            <Link href="https://linkedin.com/in/thesreejith" target='_blank' className="text-muted-foreground hover:text-[#1173E2] border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all">
+            <Link href="https://linkedin.com/in/thesreejith" target="_blank" rel="noopener noreferrer" className="text-muted-foreground border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all">
               <LinkedinOutlined className="text-lg p-1.5" />
             </Link>
-            <Link href="https://youtube.com/@buildwithsreejith" target='_blank' className="text-muted-foreground hover:text-[#1173E2] border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all">
+            <Link href="https://youtube.com/@buildwithsreejith" target="_blank" rel="noopener noreferrer" className="text-muted-foreground border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all">
               <YoutubeOutlined className="text-lg p-1.5" />
             </Link>
-            <Link href="https://instagram.com/buildwithsreejith" target='_blank' className="text-muted-foreground hover:text-[#1173E2] border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all">
+            <Link href="https://instagram.com/buildwithsreejith" target="_blank" rel="noopener noreferrer" className="text-muted-foreground border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all">
               <InstagramOutlined className="text-lg p-1.5" />
             </Link>
-            <Link href="https://medium.com/@the-sreejith" target='_blank' className="text-muted-foreground hover:text-[#1173E2] border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all">
+            <Link href="https://medium.com/@the-sreejith" target="_blank" rel="noopener noreferrer" className="text-muted-foreground border-2 border-black dark:border-white hover:bg-[#1173E2] hover:text-white transition-all">
               <MediumOutlined className="text-lg p-1.5" />
             </Link>
           </div>
